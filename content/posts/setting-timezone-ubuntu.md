@@ -9,11 +9,6 @@ tags:
   - bash
 ---
 
-# setting timezone in ubuntu
-
-```
+```bash
 timedatectl set-timezone your_time_zone
 ```
-
-#bash
-#ubuntu
