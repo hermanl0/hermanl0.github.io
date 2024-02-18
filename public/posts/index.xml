@@ -1,24 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Posts on Hello Friend NG</title>
-        <link>http://hermanl0.github.io/hermanl0.github.io/posts/</link>
-        <description>Recent content in Posts on Hello Friend NG</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>en</language>
-        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sun, 18 Feb 2024 03:54:18 +0100</lastBuildDate>
-        <atom:link href="http://hermanl0.github.io/hermanl0.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-        
-        <item>
-            <title>My First Post</title>
-            <link>http://hermanl0.github.io/hermanl0.github.io/posts/2024/02/my-first-post/</link>
-            <pubDate>Sun, 18 Feb 2024 03:54:18 +0100</pubDate>
-            
-            <guid>http://hermanl0.github.io/hermanl0.github.io/posts/2024/02/my-first-post/</guid>
-            <description>lo</description>
-            <content type="html"><![CDATA[<p>lo</p>
-]]></content>
-        </item>
-        
-    </channel>
+  <channel>
+    <title>Posts on My blog</title>
+    <link>http://hermanl0.github.io/hermanl0.github.io/posts/</link>
+    <description>Recent content in Posts on My blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 18 Feb 2024 18:01:42 +0100</lastBuildDate><atom:link href="http://hermanl0.github.io/hermanl0.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting Timezone in Ubuntu</title>
+      <link>http://hermanl0.github.io/hermanl0.github.io/posts/setting-timezone-in-ubuntu/</link>
+      <pubDate>Sun, 18 Feb 2024 18:01:42 +0100</pubDate>
+      
+      <guid>http://hermanl0.github.io/hermanl0.github.io/posts/setting-timezone-in-ubuntu/</guid>
+      
+        <description>sudo timedatectl set-timezone your_time_zone #bash #ubuntu</description>
+      
+    </item>
+    
+  </channel>
 </rss>
