@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on My blog</title>
+    <link>http://hermanl0.github.io/hermanl0.github.io/tags/git/</link>
+    <description>Recent content in git on My blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 19 Feb 2024 17:46:59 +0100</lastBuildDate><atom:link href="http://hermanl0.github.io/hermanl0.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>adding ssh keys to github</title>
+      <link>http://hermanl0.github.io/hermanl0.github.io/post/adding-ssh-keys-to-github/</link>
+      <pubDate>Mon, 19 Feb 2024 17:46:59 +0100</pubDate>
+      
+      <guid>http://hermanl0.github.io/hermanl0.github.io/post/adding-ssh-keys-to-github/</guid>
+      
+        <description>adding ssh key to githhub SSH Setup:
+On your Ubuntu machine, generate a new SSH key pair by running the following command in your terminal:</description>
+      
+    </item>
+    
+  </channel>
+</rss>

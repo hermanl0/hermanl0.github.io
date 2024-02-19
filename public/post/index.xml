@@ -6,15 +6,27 @@
     <description>Recent content in Posts on My blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 13 Mar 2021 21:47:41 +0000</lastBuildDate><atom:link href="http://hermanl0.github.io/hermanl0.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Feb 2024 17:46:59 +0100</lastBuildDate><atom:link href="http://hermanl0.github.io/hermanl0.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>The Figure Shortcode</title>
-      <link>http://hermanl0.github.io/hermanl0.github.io/post/figure-shortcode/</link>
-      <pubDate>Sat, 13 Mar 2021 21:47:41 +0000</pubDate>
+      <title>adding ssh keys to github</title>
+      <link>http://hermanl0.github.io/hermanl0.github.io/post/adding-ssh-keys-to-github/</link>
+      <pubDate>Mon, 19 Feb 2024 17:46:59 +0100</pubDate>
       
-      <guid>http://hermanl0.github.io/hermanl0.github.io/post/figure-shortcode/</guid>
+      <guid>http://hermanl0.github.io/hermanl0.github.io/post/adding-ssh-keys-to-github/</guid>
       
-        <description>text</description>
+        <description>adding ssh key to githhub SSH Setup:
+On your Ubuntu machine, generate a new SSH key pair by running the following command in your terminal:</description>
+      
+    </item>
+    
+    <item>
+      <title>Setting Timezone in Ubuntu</title>
+      <link>http://hermanl0.github.io/hermanl0.github.io/post/setting-timezone-in-ubuntu/</link>
+      <pubDate>Sun, 18 Feb 2024 18:12:23 +0100</pubDate>
+      
+      <guid>http://hermanl0.github.io/hermanl0.github.io/post/setting-timezone-in-ubuntu/</guid>
+      
+        <description>setting timezone in ubuntu timedatectl set-timezone your_time_zone </description>
       
     </item>
     

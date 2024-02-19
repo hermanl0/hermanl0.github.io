@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ubuntu on Website of Jane Doe</title>
+    <title>ubuntu on My blog</title>
     <link>http://hermanl0.github.io/hermanl0.github.io/tags/ubuntu/</link>
-    <description>Recent content in ubuntu on Website of Jane Doe</description>
+    <description>Recent content in ubuntu on My blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 18 Feb 2024 11:41:44 +0100</lastBuildDate><atom:link href="http://hermanl0.github.io/hermanl0.github.io/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Feb 2024 18:12:23 +0100</lastBuildDate><atom:link href="http://hermanl0.github.io/hermanl0.github.io/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>setting timezone in ubuntu</title>
-      <link>http://hermanl0.github.io/hermanl0.github.io/posts/setting-timezone-ubuntu/</link>
-      <pubDate>Sun, 18 Feb 2024 11:41:44 +0100</pubDate>
+      <title>Setting Timezone in Ubuntu</title>
+      <link>http://hermanl0.github.io/hermanl0.github.io/post/setting-timezone-in-ubuntu/</link>
+      <pubDate>Sun, 18 Feb 2024 18:12:23 +0100</pubDate>
       
-      <guid>http://hermanl0.github.io/hermanl0.github.io/posts/setting-timezone-ubuntu/</guid>
+      <guid>http://hermanl0.github.io/hermanl0.github.io/post/setting-timezone-in-ubuntu/</guid>
       
-        <description>timedatectl set-timezone your_time_zone </description>
+        <description>setting timezone in ubuntu timedatectl set-timezone your_time_zone </description>
       
     </item>
     
