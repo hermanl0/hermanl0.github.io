@@ -10,6 +10,13 @@ This is a quick way of getting cdp or lldp information from a switch by plugging
 
 # windows example
 
+locate your interface with
+
+```powershell
+C:\Program Files\Wireshark> .\tshark.exe -D
+```
+
+start capturing:
 
 ```powershell
 PS C:\Program Files\Wireshark> .\tshark.exe -i "\Device\NPF_{***}" \

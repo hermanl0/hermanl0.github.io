@@ -196,7 +196,7 @@
 
     ,
         "url" : "http:\/\/hermanl0.github.io\/hermanl0.github.io\/post\/tsharking-cdp-and-lldp\/",
-        "wordCount" : "59",
+        "wordCount" : "69",
         "genre" : [ ],
         "keywords" : [ 
       
@@ -390,6 +390,9 @@
         </ul>
       <p>This is a quick way of getting cdp or lldp information from a switch by plugging in your network cable in a port. Results may vary, depending on the configuration of the port.</p>
 <h1 id="windows-example">windows example</h1>
+<p>locate your interface with</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">C:</span><span class="p">\</span><span class="n">Program</span> <span class="n">Files</span><span class="p">\</span><span class="n">Wireshark</span><span class="p">&gt;</span> <span class="p">.\</span><span class="n">tshark</span><span class="p">.</span><span class="py">exe</span> <span class="n">-D</span>
+</span></span></code></pre></div><p>start capturing:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">PS </span><span class="n">C:</span><span class="p">\</span><span class="n">Program</span> <span class="n">Files</span><span class="p">\</span><span class="n">Wireshark</span><span class="p">&gt;</span> <span class="p">.\</span><span class="n">tshark</span><span class="p">.</span><span class="py">exe</span> <span class="n">-i</span> <span class="s2">&#34;\Device\NPF_{***}&#34;</span> <span class="p">\</span>
 </span></span><span class="line"><span class="cl">    <span class="n">-Y</span> <span class="s2">&#34;(lldp) or (cdp)&#34;</span>
 </span></span><span class="line"><span class="cl">
