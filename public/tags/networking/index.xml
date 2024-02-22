@@ -14,7 +14,7 @@
       
       <guid>http://hermanl0.github.io/hermanl0.github.io/post/tsharking-cdp-and-lldp/</guid>
       
-        <description>windows PS C:\Program Files\Wireshark&amp;gt; .\tshark.exe -i &amp;#34;\Device\NPF_{***}&amp;#34; -Y &amp;#34;(lldp) or (cdp)&amp;#34; </description>
+        <description>This is a quick way of getting cdp or lldp information from a switch by plugging in your network cable in a port.</description>
       
     </item>
     
