@@ -113,14 +113,14 @@
   <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="http://hermanl0.github.io/hermanl0.github.io/images/site-feature-image.png" /><meta name="twitter:title" content="adding ssh keys to github"/>
 <meta name="twitter:description" content="adding ssh key to githhub SSH Setup:
-On your Ubuntu machine, generate a new SSH key pair by running the following command in your terminal:"/>
+on your Ubuntu machine, generate a new SSH key pair by running the following command in your terminal:"/>
 
 
 
   
   <meta property="og:title" content="adding ssh keys to github" />
 <meta property="og:description" content="adding ssh key to githhub SSH Setup:
-On your Ubuntu machine, generate a new SSH key pair by running the following command in your terminal:" />
+on your Ubuntu machine, generate a new SSH key pair by running the following command in your terminal:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://hermanl0.github.io/hermanl0.github.io/post/adding-ssh-keys-to-github/" /><meta property="og:image" content="http://hermanl0.github.io/hermanl0.github.io/images/site-feature-image.png" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2024-02-19T17:46:59+01:00" />
@@ -143,7 +143,7 @@ On your Ubuntu machine, generate a new SSH key pair by running the following com
         "alternativeHeadline": "",
         "description": "
       
-        adding ssh key to githhub SSH Setup:\nOn your Ubuntu machine, generate a new SSH key pair by running the following command in your terminal:
+        adding ssh key to githhub SSH Setup:\non your Ubuntu machine, generate a new SSH key pair by running the following command in your terminal:
 
 
       
@@ -399,17 +399,17 @@ On your Ubuntu machine, generate a new SSH key pair by running the following com
         </ul>
       <h1 id="adding-ssh-key-to-githhub">adding ssh key to githhub</h1>
 <p>SSH Setup:</p>
-<p>On your Ubuntu machine, generate a new SSH key pair by running the following command in your terminal:</p>
+<p>on your Ubuntu machine, generate a new SSH key pair by running the following command in your terminal:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&#34;your_email@example.com&#34;</span>
-</span></span></code></pre></div><p>Once generated, add your new key to the ssh-agent:</p>
+</span></span></code></pre></div><p>once generated, add your new key to the ssh-agent:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="cl">ssh-add ~/.ssh/id_rsa
-</span></span></code></pre></div><p>Copy your SSH public key:</p>
+</span></span></code></pre></div><p>copy your SSH public key:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat ~/.ssh/id_rsa.pub
 </span></span></code></pre></div><p>add key to github</p>
-<p>Clone the repository with the command:</p>
+<p>clone the repository with the command:</p>
 <p>git clone <a href="mailto:git@github.uio.no">git@github.uio.no</a>:YourUserName/YourRepoName.git</p>
-<p>Replace &ldquo;YourUserName/YourRepoName.git&rdquo; with your Github username and the repository name.</p>
+<p>replace &ldquo;YourUserName/YourRepoName.git&rdquo; with your Github username and the repository name.</p>
 </div>
     <div class="post__footer">
       
