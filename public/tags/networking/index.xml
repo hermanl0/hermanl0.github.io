@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>networking on My blog</title>
+    <link>http://hermanl0.github.io/hermanl0.github.io/tags/networking/</link>
+    <description>Recent content in networking on My blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 22 Feb 2024 10:14:50 +0100</lastBuildDate><atom:link href="http://hermanl0.github.io/hermanl0.github.io/tags/networking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tsharking Cdp and Lldp</title>
+      <link>http://hermanl0.github.io/hermanl0.github.io/post/tsharking-cdp-and-lldp/</link>
+      <pubDate>Thu, 22 Feb 2024 10:14:50 +0100</pubDate>
+      
+      <guid>http://hermanl0.github.io/hermanl0.github.io/post/tsharking-cdp-and-lldp/</guid>
+      
+        <description>windows PS C:\Program Files\Wireshark&amp;gt; .\tshark.exe -i &amp;#34;\Device\NPF_{***}&amp;#34; -Y &amp;#34;(lldp) or (cdp)&amp;#34; </description>
+      
+    </item>
+    
+  </channel>
+</rss>
