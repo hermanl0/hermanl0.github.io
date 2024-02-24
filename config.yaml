@@ -1,0 +1,104 @@
+baseURL: "http://hermanl0.github.io/hermanl0.github.io/"
+title: hermanl0
+paginate: 20
+theme: PaperModX
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: true
+buildExpired: true
+pygmentsUseClasses: true
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  title: hermanl0
+  description: "my blog"
+
+  author: hermanl0
+  images: [""]
+  DateFormat: "January 2, 2006"
+  defaultTheme: auto # dark, light
+  disableThemeToggle: false
+
+  ShowReadingTime: false
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: false
+  ShowCodeCopyButtons: true
+  disableSpecial1stPost: true
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: false
+  tocopen: false
+
+  # profile-mode
+  profileMode:
+    enabled: false # needs to be explicitly set
+    title: hermanl0
+    subtitle: "my personal blog"
+
+
+
+  cover:
+    hidden: false # hide everywhere but not in structured data
+    hiddenInList: false # hide on list pages and home
+    hiddenInSingle: true # hide on single page
+
+  # for search
+  # https://fusejs.io/api/options.html
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+menu:
+  main:
+  #  - identifier: Start Here
+  #    name: "Start Here"
+  #    url: /aboutme/
+  #    weight: 10
+    # - identifier: Current
+    #   name: "Current"
+    #   url: /current/
+    #   weight: 15
+    - identifier: tags
+      name: tags
+      url: /tags/
+      weight: 20
+   # - identifier: "Index (Zet)"
+   #   name: "Index (Zet)"
+   #   url: /archives/
+   #   weight: 30
+   # - identifier: "Articles"
+   #   name: "Articles"
+   #   url: /tags/article/
+   #   weight: 40
+    - identifier: search
+      name: search
+      url: /search/
+      weight: 50
+
+# Read: https://github.com/reorx/hugo-PaperModX/wiki/FAQs#using-hugos-syntax-highlighter-chroma
+# pygmentsUseClasses: true
+# markup:
+#     highlight:
+#         # anchorLineNos: true
+#         codeFences: true
+#         guessSyntax: true
+#         lineNos: true
+#         style: monokai
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # is necessary
