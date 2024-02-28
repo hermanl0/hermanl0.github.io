@@ -6,7 +6,23 @@
     <description>Recent content in Home on hermanl0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 22 Feb 2024 10:14:50 +0100</lastBuildDate><atom:link href="http://hermanl0.github.io/hermanl0.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Feb 2024 11:32:24 +0100</lastBuildDate><atom:link href="http://hermanl0.github.io/hermanl0.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Encode Decode With Base64</title>
+      <link>http://hermanl0.github.io/hermanl0.github.io/english/post/encode-decode-with-base64/</link>
+      <pubDate>Wed, 28 Feb 2024 11:32:24 +0100</pubDate>
+      
+      <guid>http://hermanl0.github.io/hermanl0.github.io/english/post/encode-decode-with-base64/</guid>
+      <description>base64 -i example-config.txt &amp;gt; base64-encoded.txt more base64-encoded.txt Y29uZmlnIHRleHQK base64 -d -i base64-encoded.txt &amp;gt; base64-decoded.txt more base64-decoded.txt config text </description>
+      <content:encoded><![CDATA[<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">base64 -i example-config.txt &gt; base64-encoded.txt
+</span></span><span class="line"><span class="cl">more base64-encoded.txt
+</span></span><span class="line"><span class="cl">Y29uZmlnIHRleHQK
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">base64 -d -i base64-encoded.txt &gt; base64-decoded.txt
+</span></span><span class="line"><span class="cl">more base64-decoded.txt
+</span></span><span class="line"><span class="cl">config text
+</span></span></code></pre></div>]]></content:encoded>
+    </item>
+    
     <item>
       <title>Tsharking Cdp and Lldp</title>
       <link>http://hermanl0.github.io/hermanl0.github.io/english/post/tsharking-cdp-and-lldp/</link>
