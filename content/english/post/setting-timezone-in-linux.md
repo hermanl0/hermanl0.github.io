@@ -1,13 +1,13 @@
 ---
-title: "Setting Timezone in Ubuntu"
+title: "Setting Timezone in linux"
 date: 2024-02-18T18:12:23+01:00
 Description: ""
-Tags: [bash, ubuntu]
+Tags: [bash]
 Categories: []
 DisableComments: true
 ---
 
-# setting timezone in ubuntu
+# setting timezone in linux
 
 ```bash
 timedatectl set-timezone your_time_zone

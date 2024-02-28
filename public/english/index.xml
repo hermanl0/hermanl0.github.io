@@ -77,13 +77,13 @@ replace &amp;ldquo;YourUserName/YourRepoName.git&amp;rdquo; with your Github use
     </item>
     
     <item>
-      <title>Setting Timezone in Ubuntu</title>
-      <link>http://hermanl0.github.io/hermanl0.github.io/english/post/setting-timezone-in-ubuntu/</link>
+      <title>Setting Timezone in linux</title>
+      <link>http://hermanl0.github.io/hermanl0.github.io/english/post/setting-timezone-in-linux/</link>
       <pubDate>Sun, 18 Feb 2024 18:12:23 +0100</pubDate>
       
-      <guid>http://hermanl0.github.io/hermanl0.github.io/english/post/setting-timezone-in-ubuntu/</guid>
-      <description>setting timezone in ubuntu timedatectl set-timezone your_time_zone </description>
-      <content:encoded><![CDATA[<h1 id="setting-timezone-in-ubuntu">setting timezone in ubuntu</h1>
+      <guid>http://hermanl0.github.io/hermanl0.github.io/english/post/setting-timezone-in-linux/</guid>
+      <description>setting timezone in linux timedatectl set-timezone your_time_zone </description>
+      <content:encoded><![CDATA[<h1 id="setting-timezone-in-linux">setting timezone in linux</h1>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">timedatectl set-timezone your_time_zone
 </span></span></code></pre></div>]]></content:encoded>
     </item>
