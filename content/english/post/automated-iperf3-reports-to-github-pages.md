@@ -185,4 +185,8 @@ and finally, the results will be presented on this website:
 
 ![](images/pages_presentation.png)
 
+## individual report
+
+![](images/iperf-report.png)
+
 end
