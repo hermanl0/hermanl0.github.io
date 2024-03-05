@@ -172,12 +172,12 @@ if __name__ == '__main__':
 
 from the client side, this is how it looks like from an iphone:
 
-<img src="https://github.com/hermanl0/hermanl0.github.io/blob/main/static/images/iphone-iperf.png" alt="iphone-iperf.png" >
+<img src="https://raw.githubusercontent.com/hermanl0/hermanl0.github.io/main/static/images/iphone-iperf.png" alt="iphone-iperf.png" >
 
 and android:
 
-![android-iperf](https://github.com/hermanl0/hermanl0.github.io/blob/main/static/images/android-iperf.png)
+<img src="https://raw.githubusercontent.com/hermanl0/hermanl0.github.io/main/static/images/android-iperf.png" alt="android-iperf.png" >
 
 and this is how it is presented on the github page:
 
-![pages presentation](https://github.com/hermanl0/hermanl0.github.io/blob/main/static/images/pages_presentation.png)
+<img src="https://raw.githubusercontent.com/hermanl0/hermanl0.github.io/main/static/images/pages_presentation.png" alt="pages_presentation.png" >
