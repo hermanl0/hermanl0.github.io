@@ -13,47 +13,7 @@ I was curious about automating markdown reports using data I had gathered. Iperf
 The python script listen continuously for new connections. When a new test is completed, a markdown file is created and pushed to the github repo, which displays all of the reports in a sorted way on the connected github page. 
 
 
-```bash
-+-----------+          
-|           |          
-|  iperf3   |          
-|  Client   |
-|           |   UDP/TCP
-|  Sends    |   Traffic
-|  Traffic  |          
-+-----------+          
-	|
-	|
-+-----------+          
-|  iperf3   |          
-|  Server   |
-|           |  Receives
-|  Traffic  |  Traffic 
-+-----------+          
-	|
-	|
-+---------------+         
-|   index.md    |         
-|   & Report    |  python
-|   Files       |  Generates
-|               |  Markdown
-|               |  Report  
-+---------------+         
-	|
-	|
-+-----------+          
-|   Git     |          
-|   Repo    |
-|           |   Commit 
-+-----------+   Changes
-	|
-	|
-+-------------+          
-| Github Pages|          
-|   Display   |
-|   Reports   |          
-+-------------+ 
-```
+![](/images/iperf-flow-dark.png)
 
 
 ## dependencies
