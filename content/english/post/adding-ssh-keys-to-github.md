@@ -8,7 +8,7 @@ DisableComments: true
 ---
 
 
-# adding ssh key to githhub
+# adding ssh key to github
 
 SSH Setup:
 
