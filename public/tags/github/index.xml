@@ -13,8 +13,9 @@
       <pubDate>Tue, 05 Mar 2024 10:17:14 +0100</pubDate>
       
       <guid>http://hermanl0.github.io/hermanl0.github.io/english/post/automated-iperf3-reports-to-github-pages/</guid>
-      <description>I wanted to experiment with automating markdown reports based on some gathered data. iperf3 is a great tool to do performance tests of your network, especially Wi-Fi connections which can wildly vary based on your signal attributes. Github pages also has a good way of presenting markdown files. All of these elements combined makes a pretty good way of presenting automated reports on a website without having to run a dedicated webserver outside of github.</description>
-      <content:encoded><![CDATA[<p>I wanted to experiment with automating markdown reports based on some gathered data. iperf3 is a great tool to do performance tests of your network, especially Wi-Fi connections which can wildly vary based on your signal attributes. Github pages also has a good way of presenting markdown files. All of these elements combined makes a pretty good way of presenting automated reports on a website without having to run a dedicated webserver outside of github.</p>
+      <description>I was curious about automating markdown reports using data I had gathered. Iperf3 is an excellent tool for conducting network performance tests, especially for Wi-Fi connections, which can vary based on signal attributes. Github pages also offers a good way to present markdown files. When combined, these elements create a practical method for presenting automated reports on a website without requiring a dedicated web server outside of github.
+the flow The python script listen continuously for new connections.</description>
+      <content:encoded><![CDATA[<p>I was curious about automating markdown reports using data I had gathered. Iperf3 is an excellent tool for conducting network performance tests, especially for Wi-Fi connections, which can vary based on signal attributes. Github pages also offers a good way to present markdown files. When combined, these elements create a practical method for presenting automated reports on a website without requiring a dedicated web server outside of github.</p>
 <h1 id="the-flow">the flow</h1>
 <p>The python script listen continuously for new connections. When a new test is completed, a markdown file is created and pushed to the github repo, which displays all of the reports in a sorted way on the connected github page.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">+-----------+          
@@ -158,8 +159,47 @@ a github repo
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span>
-</span></span></code></pre></div><h2 id="iphone">iphone</h2>
+</span></span></code></pre></div><p>when testing, it will look like this:</p>
+<h2 id="iphone-client">iphone client</h2>
 <p><img loading="lazy" src="/hermanl0.github.io/images/iphone-iperf.png" type="" alt=""  /></p>
+<h2 id="android-client">android client</h2>
+<p><img loading="lazy" src="/hermanl0.github.io/images/android-iperf.png" type="" alt=""  /></p>
+<p>and finally, the results will be presented on this website:</p>
+<h2 id="github-pages">github pages</h2>
+<p><img loading="lazy" src="/hermanl0.github.io/images/pages_presentation.png" type="" alt=""  /></p>
+<h2 id="individual-report">individual report</h2>
+<p><img loading="lazy" src="/hermanl0.github.io/images/iperf_report.png" type="" alt=""  /></p>
+<p>end</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>adding ssh keys to github</title>
+      <link>http://hermanl0.github.io/hermanl0.github.io/english/post/adding-ssh-keys-to-github/</link>
+      <pubDate>Mon, 19 Feb 2024 17:46:59 +0100</pubDate>
+      
+      <guid>http://hermanl0.github.io/hermanl0.github.io/english/post/adding-ssh-keys-to-github/</guid>
+      <description>adding ssh key to github SSH Setup:
+on your Ubuntu machine, generate a new SSH key pair by running the following command in your terminal:
+ssh-keygen -t rsa -b 4096 -C &amp;#34;your_email@example.com&amp;#34; once generated, add your new key to the ssh-agent:
+eval &amp;#34;$(ssh-agent -s)&amp;#34; ssh-add ~/.ssh/id_rsa copy your SSH public key:
+cat ~/.ssh/id_rsa.pub add key to github
+clone the repository with the command:
+git clone git@github.uio.no:YourUserName/YourRepoName.git
+replace &amp;ldquo;YourUserName/YourRepoName.git&amp;rdquo; with your Github username and the repository name.</description>
+      <content:encoded><![CDATA[<h1 id="adding-ssh-key-to-github">adding ssh key to github</h1>
+<p>SSH Setup:</p>
+<p>on your Ubuntu machine, generate a new SSH key pair by running the following command in your terminal:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&#34;your_email@example.com&#34;</span>
+</span></span></code></pre></div><p>once generated, add your new key to the ssh-agent:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">ssh-add ~/.ssh/id_rsa
+</span></span></code></pre></div><p>copy your SSH public key:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat ~/.ssh/id_rsa.pub
+</span></span></code></pre></div><p>add key to github</p>
+<p>clone the repository with the command:</p>
+<p>git clone <a href="mailto:git@github.uio.no">git@github.uio.no</a>:YourUserName/YourRepoName.git</p>
+<p>replace &ldquo;YourUserName/YourRepoName.git&rdquo; with your Github username and the repository name.</p>
 ]]></content:encoded>
     </item>
     

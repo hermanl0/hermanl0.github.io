@@ -29,7 +29,7 @@
       <pubDate>Mon, 19 Feb 2024 17:46:59 +0100</pubDate>
       
       <guid>http://hermanl0.github.io/hermanl0.github.io/english/post/adding-ssh-keys-to-github/</guid>
-      <description>adding ssh key to githhub SSH Setup:
+      <description>adding ssh key to github SSH Setup:
 on your Ubuntu machine, generate a new SSH key pair by running the following command in your terminal:
 ssh-keygen -t rsa -b 4096 -C &amp;#34;your_email@example.com&amp;#34; once generated, add your new key to the ssh-agent:
 eval &amp;#34;$(ssh-agent -s)&amp;#34; ssh-add ~/.ssh/id_rsa copy your SSH public key:
@@ -37,7 +37,7 @@ cat ~/.ssh/id_rsa.pub add key to github
 clone the repository with the command:
 git clone git@github.uio.no:YourUserName/YourRepoName.git
 replace &amp;ldquo;YourUserName/YourRepoName.git&amp;rdquo; with your Github username and the repository name.</description>
-      <content:encoded><![CDATA[<h1 id="adding-ssh-key-to-githhub">adding ssh key to githhub</h1>
+      <content:encoded><![CDATA[<h1 id="adding-ssh-key-to-github">adding ssh key to github</h1>
 <p>SSH Setup:</p>
 <p>on your Ubuntu machine, generate a new SSH key pair by running the following command in your terminal:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&#34;your_email@example.com&#34;</span>

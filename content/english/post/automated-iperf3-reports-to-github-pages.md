@@ -187,6 +187,6 @@ and finally, the results will be presented on this website:
 
 ## individual report
 
-![](images/iperf-report.png)
+![](images/iperf_report.png)
 
 end

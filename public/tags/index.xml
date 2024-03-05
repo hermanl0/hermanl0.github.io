@@ -57,15 +57,5 @@
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
     
-    <item>
-      <title>git</title>
-      <link>http://hermanl0.github.io/hermanl0.github.io/tags/git/</link>
-      <pubDate>Mon, 19 Feb 2024 17:46:59 +0100</pubDate>
-      
-      <guid>http://hermanl0.github.io/hermanl0.github.io/tags/git/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
   </channel>
 </rss>
