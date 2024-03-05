@@ -6,7 +6,7 @@ Tags: [networking, python, github, projects]
 Categories: []
 ---
 
-I wanted to experiment with automating markdown reports based on some gathered data. iperf3 is a great tool to do performance tests of your network, especially Wi-Fi connections which can wildly vary based on your signal attributes. Github pages also has a good way of presenting markdown files. All of these elements combined makes a pretty good way of presenting automated reports on a website without having to run a dedicated webserver outside of github.
+I was curious about automating markdown reports using data I had gathered. Iperf3 is an excellent tool for conducting network performance tests, especially for Wi-Fi connections, which can vary based on signal attributes. Github pages also offers a good way to present markdown files. When combined, these elements create a practical method for presenting automated reports on a website without requiring a dedicated web server outside of github.
 
 # the flow
 
@@ -184,3 +184,5 @@ and finally, the results will be presented on this website:
 ## github pages
 
 ![](images/pages_presentation.png)
+
+end
