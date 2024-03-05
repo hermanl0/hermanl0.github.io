@@ -2,7 +2,7 @@
 title: "adding ssh keys to github"
 date: 2024-02-19T17:46:59+01:00
 Description: ""
-Tags: [git, bash]
+Tags: [github, bash]
 Categories: []
 DisableComments: true
 ---
