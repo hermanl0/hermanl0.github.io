@@ -160,8 +160,7 @@ a github repo
 </span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span>
 </span></span></code></pre></div><h2 id="the-results">the results</h2>
 <p>from the client side, this is how it looks like from an iphone:</p>
-<p>
-  <img loading="lazy" src="https://github.com/hermanl0/hermanl0.github.io/blob/main/static/images/iphone-iperf.png" alt="iphone-iperf"  /></p>
+<!-- raw HTML omitted -->
 <p>and android:</p>
 <p>
   <img loading="lazy" src="https://github.com/hermanl0/hermanl0.github.io/blob/main/static/images/android-iperf.png" alt="android-iperf"  /></p>

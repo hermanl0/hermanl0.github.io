@@ -172,7 +172,7 @@ if __name__ == '__main__':
 
 from the client side, this is how it looks like from an iphone:
 
-![iphone-iperf](https://github.com/hermanl0/hermanl0.github.io/blob/main/static/images/iphone-iperf.png)
+<img src="https://github.com/hermanl0/hermanl0.github.io/blob/main/static/images/iphone-iperf.png" alt="iphone-iperf.png" >
 
 and android:
 
