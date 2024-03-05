@@ -168,4 +168,19 @@ if __name__ == '__main__':
     main()
 ```
 
-<img src= "/img/iphone-iperf.png">
+when testing, it will look like this:
+
+## iphone client
+
+![](images/iphone-iperf.png)
+
+
+## android client
+
+![](images/android-iperf.png)
+
+and finally, the results will be presented on this website:
+
+## github pages
+
+![](images/pages_presentation.png)
