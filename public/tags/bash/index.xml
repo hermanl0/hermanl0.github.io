@@ -6,7 +6,19 @@
     <description>Recent content in bash on hermanl0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 28 Feb 2024 11:32:24 +0100</lastBuildDate><atom:link href="http://hermanl0.github.io/hermanl0.github.io/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Mar 2024 14:39:16 +0100</lastBuildDate><atom:link href="http://hermanl0.github.io/hermanl0.github.io/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>date loop</title>
+      <link>http://hermanl0.github.io/hermanl0.github.io/english/post/date-loop/</link>
+      <pubDate>Tue, 12 Mar 2024 14:39:16 +0100</pubDate>
+      
+      <guid>http://hermanl0.github.io/hermanl0.github.io/english/post/date-loop/</guid>
+      <description>date loop while true;do clear;date;sleep 1;done </description>
+      <content:encoded><![CDATA[<h1 id="date-loop">date loop</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="k">while</span> true<span class="p">;</span><span class="k">do</span> clear<span class="p">;</span>date<span class="p">;</span>sleep 1<span class="p">;</span><span class="k">done</span>
+</span></span></code></pre></div>]]></content:encoded>
+    </item>
+    
     <item>
       <title>Encode Decode With Base64</title>
       <link>http://hermanl0.github.io/hermanl0.github.io/english/post/encode-decode-with-base64/</link>

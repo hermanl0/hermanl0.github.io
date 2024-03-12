@@ -18,17 +18,8 @@ the flow The python script listen continuously for new connections.</description
       <content:encoded><![CDATA[<p>I was curious about automating markdown reports using data I had gathered. Iperf3 is an excellent tool for conducting network performance tests, especially for Wi-Fi connections, which can vary based on signal attributes. Github pages also offers a good way to present markdown files. When combined, these elements create a practical method for presenting automated reports on a website without requiring a dedicated web server outside of github.</p>
 <h1 id="the-flow">the flow</h1>
 <p>The python script listen continuously for new connections. When a new test is completed, a markdown file is created and pushed to the github repo, which displays all of the reports in a sorted way on the connected github page.</p>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">sequenceDiagram
-    participant dotcom
-    participant iframe
-    participant viewscreen
-    dotcom-&gt;&gt;iframe: loads html w/ iframe url
-    iframe-&gt;&gt;viewscreen: request template
-    viewscreen-&gt;&gt;iframe: html &amp; javascript
-    iframe-&gt;&gt;dotcom: iframe ready
-    dotcom-&gt;&gt;iframe: set mermaid data on iframe
-    iframe-&gt;&gt;iframe: render mermaid
-</code></pre><h2 id="dependencies">dependencies</h2>
+<p><img loading="lazy" src="/hermanl0.github.io/images/iperf-flow-dark.png" type="" alt=""  /></p>
+<h2 id="dependencies">dependencies</h2>
 <pre tabindex="0"><code>iperf3 installed on a server, listening on port 5201 
 
 iperf3 installed on a client, this can be an app on your phone

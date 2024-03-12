@@ -6,7 +6,19 @@
     <description>Recent content in Home on hermanl0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 05 Mar 2024 10:17:14 +0100</lastBuildDate><atom:link href="http://hermanl0.github.io/hermanl0.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Mar 2024 14:39:16 +0100</lastBuildDate><atom:link href="http://hermanl0.github.io/hermanl0.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>date loop</title>
+      <link>http://hermanl0.github.io/hermanl0.github.io/english/post/date-loop/</link>
+      <pubDate>Tue, 12 Mar 2024 14:39:16 +0100</pubDate>
+      
+      <guid>http://hermanl0.github.io/hermanl0.github.io/english/post/date-loop/</guid>
+      <description>date loop while true;do clear;date;sleep 1;done </description>
+      <content:encoded><![CDATA[<h1 id="date-loop">date loop</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="k">while</span> true<span class="p">;</span><span class="k">do</span> clear<span class="p">;</span>date<span class="p">;</span>sleep 1<span class="p">;</span><span class="k">done</span>
+</span></span></code></pre></div>]]></content:encoded>
+    </item>
+    
     <item>
       <title>Automated Iperf3 Reports to Github Pages</title>
       <link>http://hermanl0.github.io/hermanl0.github.io/english/post/automated-iperf3-reports-to-github-pages/</link>
@@ -18,17 +30,8 @@ the flow The python script listen continuously for new connections.</description
       <content:encoded><![CDATA[<p>I was curious about automating markdown reports using data I had gathered. Iperf3 is an excellent tool for conducting network performance tests, especially for Wi-Fi connections, which can vary based on signal attributes. Github pages also offers a good way to present markdown files. When combined, these elements create a practical method for presenting automated reports on a website without requiring a dedicated web server outside of github.</p>
 <h1 id="the-flow">the flow</h1>
 <p>The python script listen continuously for new connections. When a new test is completed, a markdown file is created and pushed to the github repo, which displays all of the reports in a sorted way on the connected github page.</p>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">sequenceDiagram
-    participant dotcom
-    participant iframe
-    participant viewscreen
-    dotcom-&gt;&gt;iframe: loads html w/ iframe url
-    iframe-&gt;&gt;viewscreen: request template
-    viewscreen-&gt;&gt;iframe: html &amp; javascript
-    iframe-&gt;&gt;dotcom: iframe ready
-    dotcom-&gt;&gt;iframe: set mermaid data on iframe
-    iframe-&gt;&gt;iframe: render mermaid
-</code></pre><h2 id="dependencies">dependencies</h2>
+<p><img loading="lazy" src="/hermanl0.github.io/images/iperf-flow-dark.png" type="" alt=""  /></p>
+<h2 id="dependencies">dependencies</h2>
 <pre tabindex="0"><code>iperf3 installed on a server, listening on port 5201 
 
 iperf3 installed on a client, this can be an app on your phone
