@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>powershell on hermanl0</title>
+    <link>http://hermanl0.github.io/hermanl0.github.io/tags/powershell/</link>
+    <description>Recent content in powershell on hermanl0</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 13 Mar 2024 14:32:06 +0100</lastBuildDate><atom:link href="http://hermanl0.github.io/hermanl0.github.io/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>network-info.ps1</title>
+      <link>http://hermanl0.github.io/hermanl0.github.io/english/post/network-info-powershell/</link>
+      <pubDate>Wed, 13 Mar 2024 14:32:06 +0100</pubDate>
+      
+      <guid>http://hermanl0.github.io/hermanl0.github.io/english/post/network-info-powershell/</guid>
+      <description>network info in powershell this is a script which summarizes a few useful network commands in powershell
+Clear-Host # Get client network information $networkInfo = @{ IPAddress = (Get-NetIPAddress -AddressFamily IPv4).IPAddress DefaultGateway = (Get-NetRoute -DestinationPrefix 0.0.0.0/0).NextHop MACAddress = (Get-NetAdapter -Physical | Where-Object { $_.Status -eq &amp;#34;Up&amp;#34; }).MacAddress DNSServers = (Get-DnsClientServerAddress -AddressFamily IPv4).ServerAddresses DnsSuffixSearchList = (Get-DnsClientGlobalSetting).SuffixSearchList } # Perform ARP scan to discover other clients on the network $arpScan = arp -a # Get network interface information $interfaces = Get-NetAdapter | Select-Object Name, Status, LinkSpeed, InterfaceType # Display client network information Write-Host &amp;#34;Client Network Information&amp;#34; Write-Host &amp;#34;---------------------------&amp;#34; Write-Host &amp;#34;IP Address: $($networkInfo.</description>
+      <content:encoded><![CDATA[<h1 id="network-info-in-powershell">network info in powershell</h1>
+<p>this is a script which summarizes a few useful network commands in powershell</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Clear-Host</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Get client network information</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$networkInfo</span> <span class="p">=</span> <span class="vm">@</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">IPAddress</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-NetIPAddress</span> <span class="n">-AddressFamily</span> <span class="n">IPv4</span><span class="p">).</span><span class="py">IPAddress</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DefaultGateway</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-NetRoute</span> <span class="n">-DestinationPrefix</span> <span class="mf">0.0</span><span class="p">.</span><span class="py">0</span><span class="p">.</span><span class="mf">0</span><span class="p">/</span><span class="mf">0</span><span class="p">).</span><span class="py">NextHop</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MACAddress</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-NetAdapter</span> <span class="n">-Physical</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span> <span class="nv">$_</span><span class="p">.</span><span class="py">Status</span> <span class="o">-eq</span> <span class="s2">&#34;Up&#34;</span> <span class="p">}).</span><span class="py">MacAddress</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DNSServers</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-DnsClientServerAddress</span> <span class="n">-AddressFamily</span> <span class="n">IPv4</span><span class="p">).</span><span class="py">ServerAddresses</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DnsSuffixSearchList</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-DnsClientGlobalSetting</span><span class="p">).</span><span class="py">SuffixSearchList</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Perform ARP scan to discover other clients on the network</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$arpScan</span> <span class="p">=</span> <span class="n">arp</span> <span class="n">-a</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Get network interface information</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$interfaces</span> <span class="p">=</span> <span class="nb">Get-NetAdapter</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Status</span><span class="p">,</span> <span class="n">LinkSpeed</span><span class="p">,</span> <span class="n">InterfaceType</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Display client network information</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;Client Network Information&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;---------------------------&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;IP Address:                 </span><span class="p">$(</span><span class="nv">$networkInfo</span><span class="p">.</span><span class="n">IPAddress</span><span class="p">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;Default Gateway:            </span><span class="p">$(</span><span class="nv">$networkInfo</span><span class="p">.</span><span class="n">DefaultGateway</span><span class="p">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;MAC Address:                </span><span class="p">$(</span><span class="nv">$networkInfo</span><span class="p">.</span><span class="n">MACAddress</span><span class="p">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;DNS Servers:                </span><span class="p">$(</span><span class="nv">$networkInfo</span><span class="p">.</span><span class="py">DNSServers</span> <span class="n">-join</span> <span class="s1">&#39;, &#39;</span><span class="p">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;DNS Suffix Search List:     </span><span class="p">$(</span><span class="nv">$networkInfo</span><span class="p">.</span><span class="py">DnsSuffixSearchList</span> <span class="n">-join</span> <span class="s1">&#39;, &#39;</span><span class="p">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Display other clients on the network</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;Other Clients on the Network&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;---------------------------&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$arpScan</span> <span class="p">|</span> <span class="nb">ForEach-Object</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$ip</span> <span class="p">=</span> <span class="p">(</span><span class="nv">$_</span> <span class="n">-split</span> <span class="s1">&#39;\s+&#39;</span><span class="p">)[</span><span class="mf">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$mac</span> <span class="p">=</span> <span class="p">(</span><span class="nv">$_</span> <span class="n">-split</span> <span class="s1">&#39;\s+&#39;</span><span class="p">)[</span><span class="mf">2</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">Write-Host</span> <span class="s2">&#34;IP Address: </span><span class="p">$(</span><span class="nv">$ip</span><span class="p">)</span><span class="s2">, MAC Address: </span><span class="p">$(</span><span class="nv">$mac</span><span class="p">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Display network interface information</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;Network Interface Information&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;-------------------------------&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$interfaces</span> <span class="p">|</span> <span class="nb">Format-Table</span>
+</span></span></code></pre></div><h1 id="output">output</h1>
+<p><img loading="lazy" src="/hermanl0.github.io/images/network-info-powershell-output.png" type="" alt=""  /></p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>
