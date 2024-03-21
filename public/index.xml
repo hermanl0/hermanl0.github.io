@@ -6,7 +6,21 @@
     <description>Recent content in Home on hermanl0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 13 Mar 2024 14:32:06 +0100</lastBuildDate><atom:link href="http://hermanl0.github.io/hermanl0.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Mar 2024 14:09:03 +0100</lastBuildDate><atom:link href="http://hermanl0.github.io/hermanl0.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>basic firewalld commands</title>
+      <link>http://hermanl0.github.io/hermanl0.github.io/english/post/basic-firewalld-commands/</link>
+      <pubDate>Thu, 21 Mar 2024 14:09:03 +0100</pubDate>
+      
+      <guid>http://hermanl0.github.io/hermanl0.github.io/english/post/basic-firewalld-commands/</guid>
+      <description>basic firewalld commands firewall-cmd --get-active-zones firewall-cmd --list-ports firewall-cmd --state </description>
+      <content:encoded><![CDATA[<h1 id="basic-firewalld-commands">basic firewalld commands</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">firewall-cmd --get-active-zones
+</span></span><span class="line"><span class="cl">firewall-cmd --list-ports
+</span></span><span class="line"><span class="cl">firewall-cmd --state
+</span></span></code></pre></div>]]></content:encoded>
+    </item>
+    
     <item>
       <title>network-info.ps1</title>
       <link>http://hermanl0.github.io/hermanl0.github.io/english/post/network-info-powershell/</link>
