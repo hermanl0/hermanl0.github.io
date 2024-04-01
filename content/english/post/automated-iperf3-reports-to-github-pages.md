@@ -1,5 +1,5 @@
 ---
-title: "Automated Iperf3 Reports to Github Pages"
+title: "automated iperf3 reports to github pages"
 date: 2024-03-05T10:17:14+01:00
 Description: ""
 Tags: [networking, python, github, projects]
@@ -10,16 +10,14 @@ I was curious about automating markdown reports using data I had gathered. Iperf
 
 # the flow
 
-The python script listen continuously for new connections. When a new test is completed, a markdown file is created and pushed to the github repo, which displays all of the reports in a sorted way on the connected github page. 
-
+The python script listen continuously for new connections. When a new test is completed, a markdown file is created and pushed to the github repo, which displays all of the reports in a sorted way on the connected github page.
 
 ![](/images/iperf-flow-dark.png)
-
 
 ## dependencies
 
 ```
-iperf3 installed on a server, listening on port 5201 
+iperf3 installed on a server, listening on port 5201
 
 iperf3 installed on a client, this can be an app on your phone
 
@@ -31,13 +29,14 @@ a github repo
 
 remote_theme: pages-themes/modernist@v0.2.0
 plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one
+  - jekyll-remote-theme # add this line to the plugins list if you already have one
 
 show_downloads: false
 ```
+
 ## the script
 
-```python
+````python
 import subprocess
 import os
 import signal
@@ -121,19 +120,18 @@ def main():
             process_and_save_output(result.stdout.strip())
         except subprocess.SubprocessError as e:
             print("Subprocess error occurred: ", e)
-        
+
     print("Exiting iperf3 server script.")
 
 if __name__ == '__main__':
     main()
-```
+````
 
 when testing, it will look like this:
 
 ## iphone client
 
 ![](images/iphone-iperf.png)
-
 
 ## android client
 

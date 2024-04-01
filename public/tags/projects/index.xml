@@ -8,7 +8,7 @@
     <language>en</language>
     <lastBuildDate>Tue, 05 Mar 2024 10:17:14 +0100</lastBuildDate><atom:link href="http://hermanl0.github.io/hermanl0.github.io/tags/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Automated Iperf3 Reports to Github Pages</title>
+      <title>automated iperf3 reports to github pages</title>
       <link>http://hermanl0.github.io/hermanl0.github.io/english/post/automated-iperf3-reports-to-github-pages/</link>
       <pubDate>Tue, 05 Mar 2024 10:17:14 +0100</pubDate>
       
@@ -20,7 +20,7 @@ the flow The python script listen continuously for new connections.</description
 <p>The python script listen continuously for new connections. When a new test is completed, a markdown file is created and pushed to the github repo, which displays all of the reports in a sorted way on the connected github page.</p>
 <p><img loading="lazy" src="/hermanl0.github.io/images/iperf-flow-dark.png" type="" alt=""  /></p>
 <h2 id="dependencies">dependencies</h2>
-<pre tabindex="0"><code>iperf3 installed on a server, listening on port 5201 
+<pre tabindex="0"><code>iperf3 installed on a server, listening on port 5201
 
 iperf3 installed on a client, this can be an app on your phone
 
@@ -29,7 +29,7 @@ a github repo
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">remote_theme</span><span class="p">:</span><span class="w"> </span><span class="l">pages-themes/modernist@v0.2.0</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">plugins</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="l">jekyll-remote-theme</span><span class="w"> </span><span class="c"># add this line to the plugins list if you already have one</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">jekyll-remote-theme</span><span class="w"> </span><span class="c"># add this line to the plugins list if you already have one</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">show_downloads</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div><h2 id="the-script">the script</h2>
@@ -116,7 +116,7 @@ a github repo
 </span></span><span class="line"><span class="cl">            <span class="n">process_and_save_output</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
 </span></span><span class="line"><span class="cl">        <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">SubprocessError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Subprocess error occurred: &#34;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Exiting iperf3 server script.&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
