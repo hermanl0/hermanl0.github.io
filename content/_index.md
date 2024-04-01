@@ -9,6 +9,6 @@ lo.
 
 | places online you can find me         |
 | ------------------------------------- | ------------------------------------------------- |
-| [GitHub](https://github.com/hermanl0) | [LinkedIn](https://www.linkedin.com/in/hermanl0/) |
+| [github](https://github.com/hermanl0) | [linkedin](https://www.linkedin.com/in/hermanl0/) |
 
-# Most Recent Posts:
+# recent posts:
