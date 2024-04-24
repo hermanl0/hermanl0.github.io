@@ -11,7 +11,7 @@ these are some useful commands when gathering information on different IPs and A
 
 # mtr (my traceroute)
 
-```bash
+```
 mtr -z -t 8.8.8.8 --report > mtr_out.txt 
 
 less mtr_out.txt 
