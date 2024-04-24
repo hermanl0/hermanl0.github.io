@@ -18,7 +18,7 @@ less mtr_out.txt
 
 Start: 2024-04-24T15:06:28+0200  
 ...
-13. AS15169  dns.google           0.0%    10    8.2   8.1   7.9   8.3   0.2 
+13. AS15169  dns.google           
 ```
 
 # whois
