@@ -1,5 +1,5 @@
 ---
-title: "mtr,bgpq3,whois"
+title: "mtr,whois,bgpq3"
 date: 2024-04-24T15:23:16+01:00
 Description: ""
 Tags: [bash]
@@ -33,7 +33,7 @@ ASName:         GOOGLE
 # bgpq3
 
 ```
-user@ubuntu:~/Downloads$ bgpq3 -4 
+user@ubuntu:~/Downloads$ bgpq3 -4 15169
 
 ip prefix-list NN permit 8.8.4.0/24 
 ip prefix-list NN permit 8.8.8.0/24 

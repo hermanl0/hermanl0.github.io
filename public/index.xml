@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 24 Apr 2024 15:23:16 +0100</lastBuildDate><atom:link href="http://hermanl0.github.io/hermanl0.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>mtr,bgpq3,whois</title>
-      <link>http://hermanl0.github.io/hermanl0.github.io/english/post/mtr-bgpq3-whois/</link>
+      <title>mtr,whois,bgpq3</title>
+      <link>http://hermanl0.github.io/hermanl0.github.io/english/post/mtr-whois-bgpq3/</link>
       <pubDate>Wed, 24 Apr 2024 15:23:16 +0100</pubDate>
       
-      <guid>http://hermanl0.github.io/hermanl0.github.io/english/post/mtr-bgpq3-whois/</guid>
+      <guid>http://hermanl0.github.io/hermanl0.github.io/english/post/mtr-whois-bgpq3/</guid>
       <description>these are some useful commands when gathering information on different IPs and AS numbers
-mtr (my traceroute) mtr -z -t 8.8.8.8 --report &amp;gt; mtr_out.txt less mtr_out.txt Start: 2024-04-24T15:06:28+0200 ... 13. AS15169 dns.google whois whois AS15169 ASNumber: 15169 ASName: GOOGLE bgpq3 user@ubuntu:~/Downloads$ bgpq3 -4 ip prefix-list NN permit 8.8.4.0/24 ip prefix-list NN permit 8.8.8.0/24 </description>
+mtr (my traceroute) mtr -z -t 8.8.8.8 --report &amp;gt; mtr_out.txt less mtr_out.txt Start: 2024-04-24T15:06:28+0200 ... 13. AS15169 dns.google whois whois AS15169 ASNumber: 15169 ASName: GOOGLE bgpq3 user@ubuntu:~/Downloads$ bgpq3 -4 15169 ip prefix-list NN permit 8.8.4.0/24 ip prefix-list NN permit 8.8.8.0/24 </description>
       <content:encoded><![CDATA[<p>these are some useful commands when gathering information on different IPs and AS numbers</p>
 <h1 id="mtr-my-traceroute">mtr (my traceroute)</h1>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">mtr -z -t 8.8.8.8 --report &gt; mtr_out.txt 
@@ -29,7 +29,7 @@ Start: 2024-04-24T15:06:28+0200
 ASNumber: 15169
 ASName:         GOOGLE                                                                                                                                  
 </code></pre><h1 id="bgpq3">bgpq3</h1>
-<pre tabindex="0"><code>user@ubuntu:~/Downloads$ bgpq3 -4 
+<pre tabindex="0"><code>user@ubuntu:~/Downloads$ bgpq3 -4 15169
 
 ip prefix-list NN permit 8.8.4.0/24 
 ip prefix-list NN permit 8.8.8.0/24 
