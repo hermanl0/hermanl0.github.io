@@ -5,7 +5,6 @@
     <link>http://hermanl0.github.io/hermanl0.github.io/</link>
     <description>Recent content in Home on hermanl0</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
     <lastBuildDate>Thu, 21 Mar 2024 14:09:03 +0100</lastBuildDate><atom:link href="http://hermanl0.github.io/hermanl0.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>basic firewalld commands</title>
@@ -15,10 +14,10 @@
       <guid>http://hermanl0.github.io/hermanl0.github.io/english/post/basic-firewalld-commands/</guid>
       <description>basic firewalld commands firewall-cmd --get-active-zones firewall-cmd --list-ports firewall-cmd --state </description>
       <content:encoded><![CDATA[<h1 id="basic-firewalld-commands">basic firewalld commands</h1>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">firewall-cmd --get-active-zones
-</span></span><span class="line"><span class="cl">firewall-cmd --list-ports
-</span></span><span class="line"><span class="cl">firewall-cmd --state
-</span></span></code></pre></div>]]></content:encoded>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">firewall-cmd --get-active-zones
+firewall-cmd --list-ports
+firewall-cmd --state
+</code></pre></div>]]></content:encoded>
     </item>
     
     <item>
@@ -31,48 +30,48 @@
 Clear-Host # Get client network information $networkInfo = @{ IPAddress = (Get-NetIPAddress -AddressFamily IPv4).IPAddress DefaultGateway = (Get-NetRoute -DestinationPrefix 0.0.0.0/0).NextHop MACAddress = (Get-NetAdapter -Physical | Where-Object { $_.Status -eq &amp;#34;Up&amp;#34; }).MacAddress DNSServers = (Get-DnsClientServerAddress -AddressFamily IPv4).ServerAddresses DnsSuffixSearchList = (Get-DnsClientGlobalSetting).SuffixSearchList } # Perform ARP scan to discover other clients on the network $arpScan = arp -a # Get network interface information $interfaces = Get-NetAdapter | Select-Object Name, Status, LinkSpeed, InterfaceType # Display client network information Write-Host &amp;#34;Client Network Information&amp;#34; Write-Host &amp;#34;---------------------------&amp;#34; Write-Host &amp;#34;IP Address: $($networkInfo.</description>
       <content:encoded><![CDATA[<h1 id="network-info-in-powershell">network info in powershell</h1>
 <p>this is a script which summarizes a few useful network commands in powershell</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Clear-Host</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c"># Get client network information</span>
-</span></span><span class="line"><span class="cl"><span class="nv">$networkInfo</span> <span class="p">=</span> <span class="vm">@</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">IPAddress</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-NetIPAddress</span> <span class="n">-AddressFamily</span> <span class="n">IPv4</span><span class="p">).</span><span class="py">IPAddress</span>
-</span></span><span class="line"><span class="cl">    <span class="n">DefaultGateway</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-NetRoute</span> <span class="n">-DestinationPrefix</span> <span class="mf">0.0</span><span class="p">.</span><span class="py">0</span><span class="p">.</span><span class="mf">0</span><span class="p">/</span><span class="mf">0</span><span class="p">).</span><span class="py">NextHop</span>
-</span></span><span class="line"><span class="cl">    <span class="n">MACAddress</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-NetAdapter</span> <span class="n">-Physical</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span> <span class="nv">$_</span><span class="p">.</span><span class="py">Status</span> <span class="o">-eq</span> <span class="s2">&#34;Up&#34;</span> <span class="p">}).</span><span class="py">MacAddress</span>
-</span></span><span class="line"><span class="cl">    <span class="n">DNSServers</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-DnsClientServerAddress</span> <span class="n">-AddressFamily</span> <span class="n">IPv4</span><span class="p">).</span><span class="py">ServerAddresses</span>
-</span></span><span class="line"><span class="cl">    <span class="n">DnsSuffixSearchList</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-DnsClientGlobalSetting</span><span class="p">).</span><span class="py">SuffixSearchList</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c"># Perform ARP scan to discover other clients on the network</span>
-</span></span><span class="line"><span class="cl"><span class="nv">$arpScan</span> <span class="p">=</span> <span class="n">arp</span> <span class="n">-a</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c"># Get network interface information</span>
-</span></span><span class="line"><span class="cl"><span class="nv">$interfaces</span> <span class="p">=</span> <span class="nb">Get-NetAdapter</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Status</span><span class="p">,</span> <span class="n">LinkSpeed</span><span class="p">,</span> <span class="n">InterfaceType</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c"># Display client network information</span>
-</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;Client Network Information&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;---------------------------&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;IP Address:                 </span><span class="p">$(</span><span class="nv">$networkInfo</span><span class="p">.</span><span class="n">IPAddress</span><span class="p">)</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;Default Gateway:            </span><span class="p">$(</span><span class="nv">$networkInfo</span><span class="p">.</span><span class="n">DefaultGateway</span><span class="p">)</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;MAC Address:                </span><span class="p">$(</span><span class="nv">$networkInfo</span><span class="p">.</span><span class="n">MACAddress</span><span class="p">)</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;DNS Servers:                </span><span class="p">$(</span><span class="nv">$networkInfo</span><span class="p">.</span><span class="py">DNSServers</span> <span class="n">-join</span> <span class="s1">&#39;, &#39;</span><span class="p">)</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;DNS Suffix Search List:     </span><span class="p">$(</span><span class="nv">$networkInfo</span><span class="p">.</span><span class="py">DnsSuffixSearchList</span> <span class="n">-join</span> <span class="s1">&#39;, &#39;</span><span class="p">)</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c"># Display other clients on the network</span>
-</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;Other Clients on the Network&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;---------------------------&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nv">$arpScan</span> <span class="p">|</span> <span class="nb">ForEach-Object</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nv">$ip</span> <span class="p">=</span> <span class="p">(</span><span class="nv">$_</span> <span class="n">-split</span> <span class="s1">&#39;\s+&#39;</span><span class="p">)[</span><span class="mf">1</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">    <span class="nv">$mac</span> <span class="p">=</span> <span class="p">(</span><span class="nv">$_</span> <span class="n">-split</span> <span class="s1">&#39;\s+&#39;</span><span class="p">)[</span><span class="mf">2</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">Write-Host</span> <span class="s2">&#34;IP Address: </span><span class="p">$(</span><span class="nv">$ip</span><span class="p">)</span><span class="s2">, MAC Address: </span><span class="p">$(</span><span class="nv">$mac</span><span class="p">)</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c"># Display network interface information</span>
-</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;Network Interface Information&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;-------------------------------&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nv">$interfaces</span> <span class="p">|</span> <span class="nb">Format-Table</span>
-</span></span></code></pre></div><h1 id="output">output</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="nb">Clear-Host</span>
+
+<span class="c"># Get client network information</span>
+<span class="nv">$networkInfo</span> <span class="p">=</span> <span class="p">@{</span>
+    <span class="n">IPAddress</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-NetIPAddress</span> <span class="n">-AddressFamily</span> <span class="n">IPv4</span><span class="p">).</span><span class="n">IPAddress</span>
+    <span class="n">DefaultGateway</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-NetRoute</span> <span class="n">-DestinationPrefix</span> <span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">/</span><span class="n">0</span><span class="p">).</span><span class="n">NextHop</span>
+    <span class="n">MACAddress</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-NetAdapter</span> <span class="n">-Physical</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Status</span> <span class="o">-eq</span> <span class="s2">&#34;Up&#34;</span> <span class="p">}).</span><span class="n">MacAddress</span>
+    <span class="n">DNSServers</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-DnsClientServerAddress</span> <span class="n">-AddressFamily</span> <span class="n">IPv4</span><span class="p">).</span><span class="n">ServerAddresses</span>
+    <span class="n">DnsSuffixSearchList</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-DnsClientGlobalSetting</span><span class="p">).</span><span class="n">SuffixSearchList</span>
+<span class="p">}</span>
+
+<span class="c"># Perform ARP scan to discover other clients on the network</span>
+<span class="nv">$arpScan</span> <span class="p">=</span> <span class="n">arp</span> <span class="n">-a</span>
+
+<span class="c"># Get network interface information</span>
+<span class="nv">$interfaces</span> <span class="p">=</span> <span class="nb">Get-NetAdapter</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Status</span><span class="p">,</span> <span class="n">LinkSpeed</span><span class="p">,</span> <span class="n">InterfaceType</span>
+
+<span class="c"># Display client network information</span>
+<span class="nb">Write-Host</span> <span class="s2">&#34;Client Network Information&#34;</span>
+<span class="nb">Write-Host</span> <span class="s2">&#34;---------------------------&#34;</span>
+<span class="nb">Write-Host</span> <span class="s2">&#34;IP Address:                 </span><span class="p">$(</span><span class="nv">$networkInfo</span><span class="p">.</span><span class="n">IPAddress</span><span class="p">)</span><span class="s2">&#34;</span>
+<span class="nb">Write-Host</span> <span class="s2">&#34;Default Gateway:            </span><span class="p">$(</span><span class="nv">$networkInfo</span><span class="p">.</span><span class="n">DefaultGateway</span><span class="p">)</span><span class="s2">&#34;</span>
+<span class="nb">Write-Host</span> <span class="s2">&#34;MAC Address:                </span><span class="p">$(</span><span class="nv">$networkInfo</span><span class="p">.</span><span class="n">MACAddress</span><span class="p">)</span><span class="s2">&#34;</span>
+<span class="nb">Write-Host</span> <span class="s2">&#34;DNS Servers:                </span><span class="p">$(</span><span class="nv">$networkInfo</span><span class="p">.</span><span class="n">DNSServers</span> <span class="n">-join</span> <span class="s1">&#39;, &#39;</span><span class="p">)</span><span class="s2">&#34;</span>
+<span class="nb">Write-Host</span> <span class="s2">&#34;DNS Suffix Search List:     </span><span class="p">$(</span><span class="nv">$networkInfo</span><span class="p">.</span><span class="n">DnsSuffixSearchList</span> <span class="n">-join</span> <span class="s1">&#39;, &#39;</span><span class="p">)</span><span class="s2">&#34;</span>
+<span class="nb">Write-Host</span> <span class="s2">&#34;&#34;</span>
+
+<span class="c"># Display other clients on the network</span>
+<span class="nb">Write-Host</span> <span class="s2">&#34;Other Clients on the Network&#34;</span>
+<span class="nb">Write-Host</span> <span class="s2">&#34;---------------------------&#34;</span>
+<span class="nv">$arpScan</span> <span class="p">|</span> <span class="nb">ForEach-Object</span> <span class="p">{</span>
+    <span class="nv">$ip</span> <span class="p">=</span> <span class="p">(</span><span class="nv">$_</span> <span class="n">-split</span> <span class="s1">&#39;\s+&#39;</span><span class="p">)[</span><span class="n">1</span><span class="p">]</span>
+    <span class="nv">$mac</span> <span class="p">=</span> <span class="p">(</span><span class="nv">$_</span> <span class="n">-split</span> <span class="s1">&#39;\s+&#39;</span><span class="p">)[</span><span class="n">2</span><span class="p">]</span>
+    <span class="nb">Write-Host</span> <span class="s2">&#34;IP Address: </span><span class="p">$(</span><span class="nv">$ip</span><span class="p">)</span><span class="s2">, MAC Address: </span><span class="p">$(</span><span class="nv">$mac</span><span class="p">)</span><span class="s2">&#34;</span>
+<span class="p">}</span>
+<span class="nb">Write-Host</span> <span class="s2">&#34;&#34;</span>
+
+<span class="c"># Display network interface information</span>
+<span class="nb">Write-Host</span> <span class="s2">&#34;Network Interface Information&#34;</span>
+<span class="nb">Write-Host</span> <span class="s2">&#34;-------------------------------&#34;</span>
+<span class="nv">$interfaces</span> <span class="p">|</span> <span class="nb">Format-Table</span>
+</code></pre></div><h1 id="output">output</h1>
 <p><img loading="lazy" src="/hermanl0.github.io/images/network-info-powershell-output.png" type="" alt=""  /></p>
 ]]></content:encoded>
     </item>
@@ -85,8 +84,8 @@ Clear-Host # Get client network information $networkInfo = @{ IPAddress = (Get-N
       <guid>http://hermanl0.github.io/hermanl0.github.io/english/post/date-loop/</guid>
       <description>date loop while true;do clear;date;sleep 1;done </description>
       <content:encoded><![CDATA[<h1 id="date-loop">date loop</h1>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="k">while</span> true<span class="p">;</span><span class="k">do</span> clear<span class="p">;</span>date<span class="p">;</span>sleep 1<span class="p">;</span><span class="k">done</span>
-</span></span></code></pre></div>]]></content:encoded>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="k">while</span> true<span class="p">;</span><span class="k">do</span> clear<span class="p">;</span>date<span class="p">;</span>sleep 1<span class="p">;</span><span class="k">done</span>
+</code></pre></div>]]></content:encoded>
     </item>
     
     <item>
@@ -107,103 +106,103 @@ the flow The python script listen continuously for new connections.</description
 iperf3 installed on a client, this can be an app on your phone
 
 a github repo
-</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">(optional) _config.yml file</span><span class="p">:</span><span class="w"> </span><span class="l">with the following</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">remote_theme</span><span class="p">:</span><span class="w"> </span><span class="l">pages-themes/modernist@v0.2.0</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">plugins</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">jekyll-remote-theme</span><span class="w"> </span><span class="c"># add this line to the plugins list if you already have one</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">show_downloads</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span></span></span></code></pre></div><h2 id="the-script">the script</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">subprocess</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">signal</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Configuration</span>
-</span></span><span class="line"><span class="cl"><span class="n">port</span> <span class="o">=</span> <span class="s2">&#34;5201&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">commit_msg</span> <span class="o">=</span> <span class="s2">&#34;Updated test results&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Global variable to control the server loop</span>
-</span></span><span class="line"><span class="cl"><span class="n">running</span> <span class="o">=</span> <span class="kc">True</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Create a path to the &#39;mdexport&#39; directory</span>
-</span></span><span class="line"><span class="cl"><span class="n">md_export_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;mdexport&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">md_export_path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Function to handle SIGINT (Ctrl+C)</span>
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">handle_sigint</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">running</span>
-</span></span><span class="line"><span class="cl">    <span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Register the SIGINT handler</span>
-</span></span><span class="line"><span class="cl"><span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">handle_sigint</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Function to extract the client&#39;s IP from the iperf3 test output</span>
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">extract_info</span><span class="p">(</span><span class="n">output</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Accepted connection from (.*), port&#39;</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="k">match</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">client_ip</span> <span class="o">=</span> <span class="k">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">client_ip</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Unable to extract client IP from iperf3 output&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">None</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Function to commit and push changes to GitHub repository</span>
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">git_push</span><span class="p">():</span>
-</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;index.md&#34;</span><span class="p">,</span> <span class="s2">&#34;w&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">index_file</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">index_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&#34;## iperf3 reports</span><span class="se">\n\n</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">index_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&#34;This is an overview of iperf3 reports</span><span class="se">\n\n</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">report_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">md_export_path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*.md&#39;</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">report_file</span> <span class="ow">in</span> <span class="n">report_files</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="c1"># Format the report link as a relative URL to serve on GitHub Pages</span>
-</span></span><span class="line"><span class="cl">            <span class="n">relative_link</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">report_file</span><span class="p">,</span> <span class="s2">&#34;.&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="n">index_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;- [</span><span class="si">{</span><span class="n">report_file</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">](</span><span class="si">{</span><span class="n">relative_link</span><span class="si">}</span><span class="s2">)  </span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;commit&#39;</span><span class="p">,</span> <span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="n">commit_msg</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Function to check output and create Markdown file if test is valid</span>
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">process_and_save_output</span><span class="p">(</span><span class="n">output</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="s2">&#34;Accepted&#34;</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Valid test. Generating report...&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">client_ip</span> <span class="o">=</span> <span class="n">extract_info</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">_%H-%M-%S&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">results_md_path</span> <span class="o">=</span> <span class="n">md_export_path</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&#34;iperf_results_</span><span class="si">{</span><span class="n">client_ip</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">.md&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">results_md_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">md_file</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">md_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;# iperf3 Test Results for Client: </span><span class="si">{</span><span class="n">client_ip</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="n">md_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&#34;``` </span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="n">md_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="n">md_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">``` </span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">git_push</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;No valid connections detected during test.&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Main server loop</span>
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">running</span>
-</span></span><span class="line"><span class="cl">    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&#34;pkill&#34;</span><span class="p">,</span> <span class="s2">&#34;-f&#34;</span><span class="p">,</span> <span class="s2">&#34;iperf3 -s&#34;</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;iperf3 server has been restarted.&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;iperf3 server script is running. Press Ctrl+C to stop.&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">running</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&#34;iperf3&#34;</span><span class="p">,</span> <span class="s2">&#34;-s&#34;</span><span class="p">,</span> <span class="s2">&#34;-p&#34;</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="s2">&#34;--one-off&#34;</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="n">process_and_save_output</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">        <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">SubprocessError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Subprocess error occurred: &#34;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Exiting iperf3 server script.&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span>
-</span></span></code></pre></div><p>when testing, it will look like this:</p>
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">(optional) _config.yml file</span><span class="p">:</span><span class="w"> </span><span class="l">with the following</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">remote_theme</span><span class="p">:</span><span class="w"> </span><span class="l">pages-themes/modernist@v0.2.0</span><span class="w">
+</span><span class="w"></span><span class="nt">plugins</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- <span class="l">jekyll-remote-theme</span><span class="w"> </span><span class="c"># add this line to the plugins list if you already have one</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">show_downloads</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></code></pre></div><h2 id="the-script">the script</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">signal</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="c1"># Configuration</span>
+<span class="n">port</span> <span class="o">=</span> <span class="s2">&#34;5201&#34;</span>
+<span class="n">commit_msg</span> <span class="o">=</span> <span class="s2">&#34;Updated test results&#34;</span>
+
+<span class="c1"># Global variable to control the server loop</span>
+<span class="n">running</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># Create a path to the &#39;mdexport&#39; directory</span>
+<span class="n">md_export_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;mdexport&#39;</span><span class="p">)</span>
+<span class="n">md_export_path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Function to handle SIGINT (Ctrl+C)</span>
+<span class="k">def</span> <span class="nf">handle_sigint</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">running</span>
+    <span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="c1"># Register the SIGINT handler</span>
+<span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">handle_sigint</span><span class="p">)</span>
+
+<span class="c1"># Function to extract the client&#39;s IP from the iperf3 test output</span>
+<span class="k">def</span> <span class="nf">extract_info</span><span class="p">(</span><span class="n">output</span><span class="p">):</span>
+    <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Accepted connection from (.*), port&#39;</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+        <span class="n">client_ip</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">client_ip</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Unable to extract client IP from iperf3 output&#34;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+<span class="c1"># Function to commit and push changes to GitHub repository</span>
+<span class="k">def</span> <span class="nf">git_push</span><span class="p">():</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;index.md&#34;</span><span class="p">,</span> <span class="s2">&#34;w&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">index_file</span><span class="p">:</span>
+        <span class="n">index_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&#34;## iperf3 reports</span><span class="se">\n\n</span><span class="s2">&#34;</span><span class="p">)</span>
+        <span class="n">index_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&#34;This is an overview of iperf3 reports</span><span class="se">\n\n</span><span class="s2">&#34;</span><span class="p">)</span>
+
+        <span class="n">report_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">md_export_path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*.md&#39;</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">report_file</span> <span class="ow">in</span> <span class="n">report_files</span><span class="p">:</span>
+            <span class="c1"># Format the report link as a relative URL to serve on GitHub Pages</span>
+            <span class="n">relative_link</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">report_file</span><span class="p">,</span> <span class="s2">&#34;.&#34;</span><span class="p">)</span>
+            <span class="n">index_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;- [</span><span class="si">{</span><span class="n">report_file</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">](</span><span class="si">{</span><span class="n">relative_link</span><span class="si">}</span><span class="s2">)  </span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">])</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;commit&#39;</span><span class="p">,</span> <span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="n">commit_msg</span><span class="p">])</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">])</span>
+
+<span class="c1"># Function to check output and create Markdown file if test is valid</span>
+<span class="k">def</span> <span class="nf">process_and_save_output</span><span class="p">(</span><span class="n">output</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s2">&#34;Accepted&#34;</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Valid test. Generating report...&#34;</span><span class="p">)</span>
+        <span class="n">client_ip</span> <span class="o">=</span> <span class="n">extract_info</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+        <span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">_%H-%M-%S&#39;</span><span class="p">)</span>
+        <span class="n">results_md_path</span> <span class="o">=</span> <span class="n">md_export_path</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&#34;iperf_results_</span><span class="si">{</span><span class="n">client_ip</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">.md&#34;</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">results_md_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">md_file</span><span class="p">:</span>
+            <span class="n">md_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;# iperf3 Test Results for Client: </span><span class="si">{</span><span class="n">client_ip</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&#34;</span><span class="p">)</span>
+            <span class="n">md_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&#34;``` </span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+            <span class="n">md_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+            <span class="n">md_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">``` </span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+
+        <span class="n">git_push</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;No valid connections detected during test.&#34;</span><span class="p">)</span>
+
+<span class="c1"># Main server loop</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">running</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&#34;pkill&#34;</span><span class="p">,</span> <span class="s2">&#34;-f&#34;</span><span class="p">,</span> <span class="s2">&#34;iperf3 -s&#34;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;iperf3 server has been restarted.&#34;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;iperf3 server script is running. Press Ctrl+C to stop.&#34;</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="n">running</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&#34;iperf3&#34;</span><span class="p">,</span> <span class="s2">&#34;-s&#34;</span><span class="p">,</span> <span class="s2">&#34;-p&#34;</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="s2">&#34;--one-off&#34;</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">process_and_save_output</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+        <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">SubprocessError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Subprocess error occurred: &#34;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Exiting iperf3 server script.&#34;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div><p>when testing, it will look like this:</p>
 <h2 id="iphone-client">iphone client</h2>
 <p><img loading="lazy" src="/hermanl0.github.io/images/iphone-iperf.png" type="" alt=""  /></p>
 <h2 id="android-client">android client</h2>
@@ -224,13 +223,13 @@ a github repo
       
       <guid>http://hermanl0.github.io/hermanl0.github.io/english/post/encode-decode-with-base64/</guid>
       <description>base64 -i example-config.txt &amp;gt; base64-encoded.txt more base64-encoded.txt Y29uZmlnIHRleHQK base64 -d -i base64-encoded.txt &amp;gt; base64-decoded.txt more base64-decoded.txt config text </description>
-      <content:encoded><![CDATA[<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">base64 -i example-config.txt &gt; base64-encoded.txt
-</span></span><span class="line"><span class="cl">more base64-encoded.txt
-</span></span><span class="line"><span class="cl">Y29uZmlnIHRleHQK
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">base64 -d -i base64-encoded.txt &gt; base64-decoded.txt
-</span></span><span class="line"><span class="cl">more base64-decoded.txt
-</span></span><span class="line"><span class="cl">config text
-</span></span></code></pre></div>]]></content:encoded>
+      <content:encoded><![CDATA[<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">base64 -i example-config.txt &gt; base64-encoded.txt
+more base64-encoded.txt
+Y29uZmlnIHRleHQK
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">base64 -d -i base64-encoded.txt &gt; base64-decoded.txt
+more base64-decoded.txt
+config text
+</code></pre></div>]]></content:encoded>
     </item>
     
     <item>
@@ -246,14 +245,14 @@ PS C:\Program Files\Wireshark&amp;gt; .\tshark.exe -i &amp;#34;\Device\NPF_{***}
       <content:encoded><![CDATA[<p>This is a quick way of getting cdp or lldp information from a switch by plugging in your network cable in a port. Results may vary, depending on the configuration of the port.</p>
 <h1 id="windows-example">windows example</h1>
 <p>locate your interface with</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">C:</span><span class="p">\</span><span class="n">Program</span> <span class="n">Files</span><span class="p">\</span><span class="n">Wireshark</span><span class="p">&gt;</span> <span class="p">.\</span><span class="n">tshark</span><span class="p">.</span><span class="py">exe</span> <span class="n">-D</span>
-</span></span></code></pre></div><p>start capturing:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">PS </span><span class="n">C:</span><span class="p">\</span><span class="n">Program</span> <span class="n">Files</span><span class="p">\</span><span class="n">Wireshark</span><span class="p">&gt;</span> <span class="p">.\</span><span class="n">tshark</span><span class="p">.</span><span class="py">exe</span> <span class="n">-i</span> <span class="s2">&#34;\Device\NPF_{***}&#34;</span> <span class="p">\</span>
-</span></span><span class="line"><span class="cl">    <span class="n">-Y</span> <span class="s2">&#34;(lldp) or (cdp)&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="mf">711</span>  <span class="mf">15.099343</span> <span class="n">Cisco_12</span><span class="err">:</span><span class="mf">31</span><span class="err">:</span><span class="mf">03</span> <span class="err">→</span> <span class="n">CDP</span><span class="p">/</span><span class="n">VTP</span><span class="p">/</span><span class="n">DTP</span><span class="p">/</span><span class="n">PAgP</span><span class="p">/</span><span class="n">UDLD</span> <span class="n">CDP</span> <span class="mf">502</span> <span class="p">\</span>
-</span></span><span class="line"><span class="cl"><span class="n">Device</span> <span class="n">ID</span><span class="err">:</span><span class="k">switch</span><span class="p">-</span><span class="mf">01</span><span class="p">.</span><span class="py">domain</span><span class="p">.</span><span class="py">com</span>  <span class="n">Port</span> <span class="n">ID</span><span class="err">:</span> <span class="n">GigabitEthernet0</span><span class="p">/</span><span class="mf">3</span>
-</span></span></code></pre></div>]]></content:encoded>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">C:</span><span class="p">\</span><span class="n">Program</span> <span class="n">Files</span><span class="p">\</span><span class="n">Wireshark</span><span class="p">&gt;</span> <span class="p">.\</span><span class="n">tshark</span><span class="p">.</span><span class="n">exe</span> <span class="n">-D</span>
+</code></pre></div><p>start capturing:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="nb">PS </span><span class="n">C:</span><span class="p">\</span><span class="n">Program</span> <span class="n">Files</span><span class="p">\</span><span class="n">Wireshark</span><span class="p">&gt;</span> <span class="p">.\</span><span class="n">tshark</span><span class="p">.</span><span class="n">exe</span> <span class="n">-i</span> <span class="s2">&#34;\Device\NPF_{***}&#34;</span> <span class="p">\</span>
+    <span class="n">-Y</span> <span class="s2">&#34;(lldp) or (cdp)&#34;</span>
+
+<span class="n">711</span>  <span class="n">15</span><span class="p">.</span><span class="n">099343</span> <span class="n">Cisco_12</span><span class="err">:</span><span class="n">31</span><span class="err">:</span><span class="n">03</span> <span class="err">→</span> <span class="n">CDP</span><span class="p">/</span><span class="n">VTP</span><span class="p">/</span><span class="n">DTP</span><span class="p">/</span><span class="n">PAgP</span><span class="p">/</span><span class="n">UDLD</span> <span class="n">CDP</span> <span class="n">502</span> <span class="p">\</span>
+<span class="n">Device</span> <span class="n">ID</span><span class="err">:</span><span class="k">switch</span><span class="p">-</span><span class="n">01</span><span class="p">.</span><span class="n">domain</span><span class="p">.</span><span class="n">com</span>  <span class="n">Port</span> <span class="n">ID</span><span class="err">:</span> <span class="n">GigabitEthernet0</span><span class="p">/</span><span class="n">3</span>
+</code></pre></div>]]></content:encoded>
     </item>
     
     <item>
@@ -268,20 +267,20 @@ ssh-keygen -t rsa -b 4096 -C &amp;#34;your_email@example.com&amp;#34; once gener
 eval &amp;#34;$(ssh-agent -s)&amp;#34; ssh-add ~/.ssh/id_rsa copy your SSH public key:
 cat ~/.ssh/id_rsa.pub add key to github
 clone the repository with the command:
-git clone git@github.uio.no:YourUserName/YourRepoName.git
+git clone git@github.com:YourUserName/YourRepoName.git
 replace &amp;ldquo;YourUserName/YourRepoName.git&amp;rdquo; with your Github username and the repository name.</description>
       <content:encoded><![CDATA[<h1 id="adding-ssh-key-to-github">adding ssh key to github</h1>
 <p>SSH Setup:</p>
 <p>on your Ubuntu machine, generate a new SSH key pair by running the following command in your terminal:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&#34;your_email@example.com&#34;</span>
-</span></span></code></pre></div><p>once generated, add your new key to the ssh-agent:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">ssh-add ~/.ssh/id_rsa
-</span></span></code></pre></div><p>copy your SSH public key:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat ~/.ssh/id_rsa.pub
-</span></span></code></pre></div><p>add key to github</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&#34;your_email@example.com&#34;</span>
+</code></pre></div><p>once generated, add your new key to the ssh-agent:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
+ssh-add ~/.ssh/id_rsa
+</code></pre></div><p>copy your SSH public key:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">cat ~/.ssh/id_rsa.pub
+</code></pre></div><p>add key to github</p>
 <p>clone the repository with the command:</p>
-<p>git clone <a href="mailto:git@github.uio.no">git@github.uio.no</a>:YourUserName/YourRepoName.git</p>
+<p>git clone <a href="mailto:git@github.com">git@github.com</a>:YourUserName/YourRepoName.git</p>
 <p>replace &ldquo;YourUserName/YourRepoName.git&rdquo; with your Github username and the repository name.</p>
 ]]></content:encoded>
     </item>
@@ -294,8 +293,8 @@ replace &amp;ldquo;YourUserName/YourRepoName.git&amp;rdquo; with your Github use
       <guid>http://hermanl0.github.io/hermanl0.github.io/english/post/setting-timezone-in-linux/</guid>
       <description>setting timezone in linux timedatectl set-timezone your_time_zone </description>
       <content:encoded><![CDATA[<h1 id="setting-timezone-in-linux">setting timezone in linux</h1>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">timedatectl set-timezone your_time_zone
-</span></span></code></pre></div>]]></content:encoded>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">timedatectl set-timezone your_time_zone
+</code></pre></div>]]></content:encoded>
     </item>
     
   </channel>

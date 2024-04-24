@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Projects on hermanl0</title>
+    <title>projects on hermanl0</title>
     <link>http://hermanl0.github.io/hermanl0.github.io/tags/projects/</link>
-    <description>Recent content in Projects on hermanl0</description>
+    <description>Recent content in projects on hermanl0</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
     <lastBuildDate>Tue, 05 Mar 2024 10:17:14 +0100</lastBuildDate><atom:link href="http://hermanl0.github.io/hermanl0.github.io/tags/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>automated iperf3 reports to github pages</title>
@@ -25,103 +24,103 @@ the flow The python script listen continuously for new connections.</description
 iperf3 installed on a client, this can be an app on your phone
 
 a github repo
-</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">(optional) _config.yml file</span><span class="p">:</span><span class="w"> </span><span class="l">with the following</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">remote_theme</span><span class="p">:</span><span class="w"> </span><span class="l">pages-themes/modernist@v0.2.0</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">plugins</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">jekyll-remote-theme</span><span class="w"> </span><span class="c"># add this line to the plugins list if you already have one</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">show_downloads</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span></span></span></code></pre></div><h2 id="the-script">the script</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">subprocess</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">signal</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Configuration</span>
-</span></span><span class="line"><span class="cl"><span class="n">port</span> <span class="o">=</span> <span class="s2">&#34;5201&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">commit_msg</span> <span class="o">=</span> <span class="s2">&#34;Updated test results&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Global variable to control the server loop</span>
-</span></span><span class="line"><span class="cl"><span class="n">running</span> <span class="o">=</span> <span class="kc">True</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Create a path to the &#39;mdexport&#39; directory</span>
-</span></span><span class="line"><span class="cl"><span class="n">md_export_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;mdexport&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">md_export_path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Function to handle SIGINT (Ctrl+C)</span>
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">handle_sigint</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">running</span>
-</span></span><span class="line"><span class="cl">    <span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Register the SIGINT handler</span>
-</span></span><span class="line"><span class="cl"><span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">handle_sigint</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Function to extract the client&#39;s IP from the iperf3 test output</span>
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">extract_info</span><span class="p">(</span><span class="n">output</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Accepted connection from (.*), port&#39;</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="k">match</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">client_ip</span> <span class="o">=</span> <span class="k">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">client_ip</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Unable to extract client IP from iperf3 output&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">None</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Function to commit and push changes to GitHub repository</span>
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">git_push</span><span class="p">():</span>
-</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;index.md&#34;</span><span class="p">,</span> <span class="s2">&#34;w&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">index_file</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">index_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&#34;## iperf3 reports</span><span class="se">\n\n</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">index_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&#34;This is an overview of iperf3 reports</span><span class="se">\n\n</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">report_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">md_export_path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*.md&#39;</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">report_file</span> <span class="ow">in</span> <span class="n">report_files</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="c1"># Format the report link as a relative URL to serve on GitHub Pages</span>
-</span></span><span class="line"><span class="cl">            <span class="n">relative_link</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">report_file</span><span class="p">,</span> <span class="s2">&#34;.&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="n">index_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;- [</span><span class="si">{</span><span class="n">report_file</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">](</span><span class="si">{</span><span class="n">relative_link</span><span class="si">}</span><span class="s2">)  </span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;commit&#39;</span><span class="p">,</span> <span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="n">commit_msg</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Function to check output and create Markdown file if test is valid</span>
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">process_and_save_output</span><span class="p">(</span><span class="n">output</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="s2">&#34;Accepted&#34;</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Valid test. Generating report...&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">client_ip</span> <span class="o">=</span> <span class="n">extract_info</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">_%H-%M-%S&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">results_md_path</span> <span class="o">=</span> <span class="n">md_export_path</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&#34;iperf_results_</span><span class="si">{</span><span class="n">client_ip</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">.md&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">results_md_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">md_file</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">md_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;# iperf3 Test Results for Client: </span><span class="si">{</span><span class="n">client_ip</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="n">md_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&#34;``` </span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="n">md_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="n">md_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">``` </span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">git_push</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;No valid connections detected during test.&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Main server loop</span>
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">running</span>
-</span></span><span class="line"><span class="cl">    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&#34;pkill&#34;</span><span class="p">,</span> <span class="s2">&#34;-f&#34;</span><span class="p">,</span> <span class="s2">&#34;iperf3 -s&#34;</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;iperf3 server has been restarted.&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;iperf3 server script is running. Press Ctrl+C to stop.&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">running</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&#34;iperf3&#34;</span><span class="p">,</span> <span class="s2">&#34;-s&#34;</span><span class="p">,</span> <span class="s2">&#34;-p&#34;</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="s2">&#34;--one-off&#34;</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="n">process_and_save_output</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">        <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">SubprocessError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Subprocess error occurred: &#34;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Exiting iperf3 server script.&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span>
-</span></span></code></pre></div><p>when testing, it will look like this:</p>
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">(optional) _config.yml file</span><span class="p">:</span><span class="w"> </span><span class="l">with the following</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">remote_theme</span><span class="p">:</span><span class="w"> </span><span class="l">pages-themes/modernist@v0.2.0</span><span class="w">
+</span><span class="w"></span><span class="nt">plugins</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- <span class="l">jekyll-remote-theme</span><span class="w"> </span><span class="c"># add this line to the plugins list if you already have one</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">show_downloads</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></code></pre></div><h2 id="the-script">the script</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">signal</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="c1"># Configuration</span>
+<span class="n">port</span> <span class="o">=</span> <span class="s2">&#34;5201&#34;</span>
+<span class="n">commit_msg</span> <span class="o">=</span> <span class="s2">&#34;Updated test results&#34;</span>
+
+<span class="c1"># Global variable to control the server loop</span>
+<span class="n">running</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># Create a path to the &#39;mdexport&#39; directory</span>
+<span class="n">md_export_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;mdexport&#39;</span><span class="p">)</span>
+<span class="n">md_export_path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Function to handle SIGINT (Ctrl+C)</span>
+<span class="k">def</span> <span class="nf">handle_sigint</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">running</span>
+    <span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="c1"># Register the SIGINT handler</span>
+<span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">handle_sigint</span><span class="p">)</span>
+
+<span class="c1"># Function to extract the client&#39;s IP from the iperf3 test output</span>
+<span class="k">def</span> <span class="nf">extract_info</span><span class="p">(</span><span class="n">output</span><span class="p">):</span>
+    <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Accepted connection from (.*), port&#39;</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+        <span class="n">client_ip</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">client_ip</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Unable to extract client IP from iperf3 output&#34;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+<span class="c1"># Function to commit and push changes to GitHub repository</span>
+<span class="k">def</span> <span class="nf">git_push</span><span class="p">():</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;index.md&#34;</span><span class="p">,</span> <span class="s2">&#34;w&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">index_file</span><span class="p">:</span>
+        <span class="n">index_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&#34;## iperf3 reports</span><span class="se">\n\n</span><span class="s2">&#34;</span><span class="p">)</span>
+        <span class="n">index_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&#34;This is an overview of iperf3 reports</span><span class="se">\n\n</span><span class="s2">&#34;</span><span class="p">)</span>
+
+        <span class="n">report_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">md_export_path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*.md&#39;</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">report_file</span> <span class="ow">in</span> <span class="n">report_files</span><span class="p">:</span>
+            <span class="c1"># Format the report link as a relative URL to serve on GitHub Pages</span>
+            <span class="n">relative_link</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">report_file</span><span class="p">,</span> <span class="s2">&#34;.&#34;</span><span class="p">)</span>
+            <span class="n">index_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;- [</span><span class="si">{</span><span class="n">report_file</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">](</span><span class="si">{</span><span class="n">relative_link</span><span class="si">}</span><span class="s2">)  </span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">])</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;commit&#39;</span><span class="p">,</span> <span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="n">commit_msg</span><span class="p">])</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">])</span>
+
+<span class="c1"># Function to check output and create Markdown file if test is valid</span>
+<span class="k">def</span> <span class="nf">process_and_save_output</span><span class="p">(</span><span class="n">output</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s2">&#34;Accepted&#34;</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Valid test. Generating report...&#34;</span><span class="p">)</span>
+        <span class="n">client_ip</span> <span class="o">=</span> <span class="n">extract_info</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+        <span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">_%H-%M-%S&#39;</span><span class="p">)</span>
+        <span class="n">results_md_path</span> <span class="o">=</span> <span class="n">md_export_path</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&#34;iperf_results_</span><span class="si">{</span><span class="n">client_ip</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">.md&#34;</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">results_md_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">md_file</span><span class="p">:</span>
+            <span class="n">md_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;# iperf3 Test Results for Client: </span><span class="si">{</span><span class="n">client_ip</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&#34;</span><span class="p">)</span>
+            <span class="n">md_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&#34;``` </span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+            <span class="n">md_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+            <span class="n">md_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">``` </span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+
+        <span class="n">git_push</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;No valid connections detected during test.&#34;</span><span class="p">)</span>
+
+<span class="c1"># Main server loop</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">running</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&#34;pkill&#34;</span><span class="p">,</span> <span class="s2">&#34;-f&#34;</span><span class="p">,</span> <span class="s2">&#34;iperf3 -s&#34;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;iperf3 server has been restarted.&#34;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;iperf3 server script is running. Press Ctrl+C to stop.&#34;</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="n">running</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&#34;iperf3&#34;</span><span class="p">,</span> <span class="s2">&#34;-s&#34;</span><span class="p">,</span> <span class="s2">&#34;-p&#34;</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="s2">&#34;--one-off&#34;</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">process_and_save_output</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+        <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">SubprocessError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Subprocess error occurred: &#34;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Exiting iperf3 server script.&#34;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div><p>when testing, it will look like this:</p>
 <h2 id="iphone-client">iphone client</h2>
 <p><img loading="lazy" src="/hermanl0.github.io/images/iphone-iperf.png" type="" alt=""  /></p>
 <h2 id="android-client">android client</h2>

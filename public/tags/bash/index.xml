@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Bash on hermanl0</title>
+    <title>bash on hermanl0</title>
     <link>http://hermanl0.github.io/hermanl0.github.io/tags/bash/</link>
-    <description>Recent content in Bash on hermanl0</description>
+    <description>Recent content in bash on hermanl0</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
     <lastBuildDate>Thu, 21 Mar 2024 14:09:03 +0100</lastBuildDate><atom:link href="http://hermanl0.github.io/hermanl0.github.io/tags/bash/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>basic firewalld commands</title>
@@ -15,10 +14,10 @@
       <guid>http://hermanl0.github.io/hermanl0.github.io/english/post/basic-firewalld-commands/</guid>
       <description>basic firewalld commands firewall-cmd --get-active-zones firewall-cmd --list-ports firewall-cmd --state </description>
       <content:encoded><![CDATA[<h1 id="basic-firewalld-commands">basic firewalld commands</h1>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">firewall-cmd --get-active-zones
-</span></span><span class="line"><span class="cl">firewall-cmd --list-ports
-</span></span><span class="line"><span class="cl">firewall-cmd --state
-</span></span></code></pre></div>]]></content:encoded>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">firewall-cmd --get-active-zones
+firewall-cmd --list-ports
+firewall-cmd --state
+</code></pre></div>]]></content:encoded>
     </item>
     
     <item>
@@ -29,8 +28,8 @@
       <guid>http://hermanl0.github.io/hermanl0.github.io/english/post/date-loop/</guid>
       <description>date loop while true;do clear;date;sleep 1;done </description>
       <content:encoded><![CDATA[<h1 id="date-loop">date loop</h1>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="k">while</span> true<span class="p">;</span><span class="k">do</span> clear<span class="p">;</span>date<span class="p">;</span>sleep 1<span class="p">;</span><span class="k">done</span>
-</span></span></code></pre></div>]]></content:encoded>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="k">while</span> true<span class="p">;</span><span class="k">do</span> clear<span class="p">;</span>date<span class="p">;</span>sleep 1<span class="p">;</span><span class="k">done</span>
+</code></pre></div>]]></content:encoded>
     </item>
     
     <item>
@@ -40,13 +39,13 @@
       
       <guid>http://hermanl0.github.io/hermanl0.github.io/english/post/encode-decode-with-base64/</guid>
       <description>base64 -i example-config.txt &amp;gt; base64-encoded.txt more base64-encoded.txt Y29uZmlnIHRleHQK base64 -d -i base64-encoded.txt &amp;gt; base64-decoded.txt more base64-decoded.txt config text </description>
-      <content:encoded><![CDATA[<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">base64 -i example-config.txt &gt; base64-encoded.txt
-</span></span><span class="line"><span class="cl">more base64-encoded.txt
-</span></span><span class="line"><span class="cl">Y29uZmlnIHRleHQK
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">base64 -d -i base64-encoded.txt &gt; base64-decoded.txt
-</span></span><span class="line"><span class="cl">more base64-decoded.txt
-</span></span><span class="line"><span class="cl">config text
-</span></span></code></pre></div>]]></content:encoded>
+      <content:encoded><![CDATA[<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">base64 -i example-config.txt &gt; base64-encoded.txt
+more base64-encoded.txt
+Y29uZmlnIHRleHQK
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">base64 -d -i base64-encoded.txt &gt; base64-decoded.txt
+more base64-decoded.txt
+config text
+</code></pre></div>]]></content:encoded>
     </item>
     
     <item>
@@ -61,20 +60,20 @@ ssh-keygen -t rsa -b 4096 -C &amp;#34;your_email@example.com&amp;#34; once gener
 eval &amp;#34;$(ssh-agent -s)&amp;#34; ssh-add ~/.ssh/id_rsa copy your SSH public key:
 cat ~/.ssh/id_rsa.pub add key to github
 clone the repository with the command:
-git clone git@github.uio.no:YourUserName/YourRepoName.git
+git clone git@github.com:YourUserName/YourRepoName.git
 replace &amp;ldquo;YourUserName/YourRepoName.git&amp;rdquo; with your Github username and the repository name.</description>
       <content:encoded><![CDATA[<h1 id="adding-ssh-key-to-github">adding ssh key to github</h1>
 <p>SSH Setup:</p>
 <p>on your Ubuntu machine, generate a new SSH key pair by running the following command in your terminal:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&#34;your_email@example.com&#34;</span>
-</span></span></code></pre></div><p>once generated, add your new key to the ssh-agent:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">ssh-add ~/.ssh/id_rsa
-</span></span></code></pre></div><p>copy your SSH public key:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat ~/.ssh/id_rsa.pub
-</span></span></code></pre></div><p>add key to github</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&#34;your_email@example.com&#34;</span>
+</code></pre></div><p>once generated, add your new key to the ssh-agent:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
+ssh-add ~/.ssh/id_rsa
+</code></pre></div><p>copy your SSH public key:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">cat ~/.ssh/id_rsa.pub
+</code></pre></div><p>add key to github</p>
 <p>clone the repository with the command:</p>
-<p>git clone <a href="mailto:git@github.uio.no">git@github.uio.no</a>:YourUserName/YourRepoName.git</p>
+<p>git clone <a href="mailto:git@github.com">git@github.com</a>:YourUserName/YourRepoName.git</p>
 <p>replace &ldquo;YourUserName/YourRepoName.git&rdquo; with your Github username and the repository name.</p>
 ]]></content:encoded>
     </item>
@@ -87,8 +86,8 @@ replace &amp;ldquo;YourUserName/YourRepoName.git&amp;rdquo; with your Github use
       <guid>http://hermanl0.github.io/hermanl0.github.io/english/post/setting-timezone-in-linux/</guid>
       <description>setting timezone in linux timedatectl set-timezone your_time_zone </description>
       <content:encoded><![CDATA[<h1 id="setting-timezone-in-linux">setting timezone in linux</h1>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">timedatectl set-timezone your_time_zone
-</span></span></code></pre></div>]]></content:encoded>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">timedatectl set-timezone your_time_zone
+</code></pre></div>]]></content:encoded>
     </item>
     
   </channel>
