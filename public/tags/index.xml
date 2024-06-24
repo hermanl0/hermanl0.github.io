@@ -5,7 +5,37 @@
     <link>http://hermanl0.github.io/hermanl0.github.io/tags/</link>
     <description>Recent content in Tags on hermanl0</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 24 Apr 2024 15:23:16 +0100</lastBuildDate><atom:link href="http://hermanl0.github.io/hermanl0.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 Jun 2024 13:32:46 +0200</lastBuildDate><atom:link href="http://hermanl0.github.io/hermanl0.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker</title>
+      <link>http://hermanl0.github.io/hermanl0.github.io/tags/docker/</link>
+      <pubDate>Fri, 14 Jun 2024 13:32:46 +0200</pubDate>
+      
+      <guid>http://hermanl0.github.io/hermanl0.github.io/tags/docker/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>ollama</title>
+      <link>http://hermanl0.github.io/hermanl0.github.io/tags/ollama/</link>
+      <pubDate>Fri, 14 Jun 2024 13:32:46 +0200</pubDate>
+      
+      <guid>http://hermanl0.github.io/hermanl0.github.io/tags/ollama/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>projects</title>
+      <link>http://hermanl0.github.io/hermanl0.github.io/tags/projects/</link>
+      <pubDate>Fri, 14 Jun 2024 13:32:46 +0200</pubDate>
+      
+      <guid>http://hermanl0.github.io/hermanl0.github.io/tags/projects/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
     <item>
       <title>bash</title>
       <link>http://hermanl0.github.io/hermanl0.github.io/tags/bash/</link>
@@ -42,16 +72,6 @@
       <pubDate>Tue, 05 Mar 2024 10:17:14 +0100</pubDate>
       
       <guid>http://hermanl0.github.io/hermanl0.github.io/tags/networking/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>projects</title>
-      <link>http://hermanl0.github.io/hermanl0.github.io/tags/projects/</link>
-      <pubDate>Tue, 05 Mar 2024 10:17:14 +0100</pubDate>
-      
-      <guid>http://hermanl0.github.io/hermanl0.github.io/tags/projects/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>

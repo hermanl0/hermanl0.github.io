@@ -2,19 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://hermanl0.github.io/hermanl0.github.io/tags/docker/</loc>
+    <lastmod>2024-06-14T13:32:46+02:00</lastmod>
+  </url><url>
+    <loc>http://hermanl0.github.io/hermanl0.github.io/english/</loc>
+    <lastmod>2024-06-14T13:32:46+02:00</lastmod>
+  </url><url>
+    <loc>http://hermanl0.github.io/hermanl0.github.io/</loc>
+    <lastmod>2024-06-14T13:32:46+02:00</lastmod>
+  </url><url>
+    <loc>http://hermanl0.github.io/hermanl0.github.io/english/post/local-ollama-website/</loc>
+    <lastmod>2024-06-14T13:32:46+02:00</lastmod>
+  </url><url>
+    <loc>http://hermanl0.github.io/hermanl0.github.io/tags/ollama/</loc>
+    <lastmod>2024-06-14T13:32:46+02:00</lastmod>
+  </url><url>
+    <loc>http://hermanl0.github.io/hermanl0.github.io/tags/projects/</loc>
+    <lastmod>2024-06-14T13:32:46+02:00</lastmod>
+  </url><url>
+    <loc>http://hermanl0.github.io/hermanl0.github.io/tags/</loc>
+    <lastmod>2024-06-14T13:32:46+02:00</lastmod>
+  </url><url>
     <loc>http://hermanl0.github.io/hermanl0.github.io/tags/bash/</loc>
     <lastmod>2024-04-24T15:23:16+01:00</lastmod>
   </url><url>
-    <loc>http://hermanl0.github.io/hermanl0.github.io/english/</loc>
-    <lastmod>2024-04-24T15:23:16+01:00</lastmod>
-  </url><url>
-    <loc>http://hermanl0.github.io/hermanl0.github.io/</loc>
-    <lastmod>2024-04-24T15:23:16+01:00</lastmod>
-  </url><url>
     <loc>http://hermanl0.github.io/hermanl0.github.io/english/post/mtr-whois-bgpq3/</loc>
-    <lastmod>2024-04-24T15:23:16+01:00</lastmod>
-  </url><url>
-    <loc>http://hermanl0.github.io/hermanl0.github.io/tags/</loc>
     <lastmod>2024-04-24T15:23:16+01:00</lastmod>
   </url><url>
     <loc>http://hermanl0.github.io/hermanl0.github.io/english/post/basic-firewalld-commands/</loc>
@@ -36,9 +48,6 @@
     <lastmod>2024-03-05T10:17:14+01:00</lastmod>
   </url><url>
     <loc>http://hermanl0.github.io/hermanl0.github.io/tags/networking/</loc>
-    <lastmod>2024-03-05T10:17:14+01:00</lastmod>
-  </url><url>
-    <loc>http://hermanl0.github.io/hermanl0.github.io/tags/projects/</loc>
     <lastmod>2024-03-05T10:17:14+01:00</lastmod>
   </url><url>
     <loc>http://hermanl0.github.io/hermanl0.github.io/tags/python/</loc>
