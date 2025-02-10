@@ -6,9 +6,8 @@ This repository contains my various notes and projects.
 
 ## 01_projects
 
-
+[automated-iperf3-reports-to-github-pages.md](01_projects/automated-iperf3-reports-to-github-pages.md)
 
 ## 00_notes
 
 [encode-decode-with-base64.md](00_notes/encode-decode-with-base64.md)
-
