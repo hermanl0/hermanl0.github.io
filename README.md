@@ -1,4 +1,4 @@
-This repository contains my various notes and projects.
+This [repository](https://github.com/hermanl0/hermanl0.github.io) contains my various notes and projects.
 
 ## Stats
 
