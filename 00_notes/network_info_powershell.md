@@ -48,8 +48,6 @@ $interfaces | Format-Table
 
 # output 
 
-Sure! Here is the network information output with all MAC addresses replaced by the humorous fake MAC address "BA-D1-DA-C0-FF-EE":
-
 ```
 ---------------------------
 IP Address:                 192.168.1.2 192.168.1.3 192.168.1.4 10.0.0.5 192.168.1.5 127.0.0.1
