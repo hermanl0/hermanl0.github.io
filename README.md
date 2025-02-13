@@ -6,8 +6,8 @@ This repository contains my various notes and projects.
 
 ## 01_projects
 
-[local_ollama_webui.md](01_projects/local_ollama_webui.md)
-[automated-iperf3-reports-to-github-pages.md](01_projects/automated-iperf3-reports-to-github-pages.md)
+* [local_ollama_webui.md](01_projects/local_ollama_webui.md)
+* [automated-iperf3-reports-to-github-pages.md](01_projects/automated-iperf3-reports-to-github-pages.md)
 
 ## 00_notes
 
