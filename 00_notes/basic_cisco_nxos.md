@@ -10,3 +10,17 @@ switch# show run clock_manager
 !Running configuration last done at: Tue Feb 18 10:46:12 2025
 !Time: Tue Feb 18 10:48:59 2025
 ```
+
+```
+switch#show environment
+...
+Temperature:
+--------------------------------------------------------------------
+Module   Sensor        MajorThresh   MinorThres   CurTemp     Status
+                       (Celsius)     (Celsius)    (Celsius)
+--------------------------------------------------------------------
+A        Sensor1         XX              XX        XX         OK
+A        Sensor2         XX              XX        XX         OK
+A        Sensor3         XX              XX        XX         OK
+A        Sensor4         XX              XX        XX         OK
+```
