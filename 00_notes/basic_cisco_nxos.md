@@ -24,3 +24,17 @@ A        Sensor2         XX              XX        XX         OK
 A        Sensor3         XX              XX        XX         OK
 A        Sensor4         XX              XX        XX         OK
 ```
+
+```
+switch# show archive
+The maximum archive configurations allowed is 10.
+The archiving time-period is 1439 minutes.
+The next archive will be in 1221 minutes.
+Write-mem mode is enabled.
+There are currently 2 archive configurations saved.
+The next archive file will be named ftp://user:pass@[IPv6:address]/uploads/switches/device-xyz-confg-<timestamp>-2
+ Archive #  Name
+    1       ftp://user:pass@[IPv6:address]/backup/device-xyz-confg-<date-time>-0
+    2       ftp://user:pass@[IPv6:address]/backup/device-xyz-confg-<date-time>-1 <- Most Recent
+    3
+```
