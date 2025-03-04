@@ -29,16 +29,18 @@ Daemon is up and running
 ```
 bird> show protocols
 
-| Protocol  | Table  | State  | Since                      | Info                               |
-|----------|--------|--------|---------------------------|-----------------------------------|
-| `FooBar` | ---    | up     | 2022-01-01 00:00:00      | This is a valid protocol session   |
-| `Gizmo1`  | ---    | up     | 2021-06-15 12:00:00      | Established with a secure key      |
-| `Blerp`   | ---    | up     | 2020-03-20 14:30:00      | Connected to a backup server       |
-| `Plink`   | ---    | up     | 2021-09-08 18:00:00      | Using a custom DNS server          |
-| `Bloop`   | ---    | start  | 2020-02-14 08:00:00      | Connection timed out due to firewall |
-| `Glub`    | ---    | up     | 2022-05-22 10:00:00      | Successfully negotiated a BGP session |
-| `Flib`    | ---    | up     | 2021-11-18 12:00:00      | Established a secure tunnel connection |
-| `Ding`    | ---    | up     | 2021-08-25 16:00:00      | Using a load balancer for redundancy |
-| `Floof`   | ---    | up     | 2020-10-12 14:00:00      | Connected to a cloud provider       |
-| `Wizzle`  | ---    | up     | 2022-03-01 08:00:00      | Established a VPN connection        |
+Here is the replaced text:
+
+Name         Proto  Table  State  Since                 Info
+Foobar       Gizmo   ---    up     2022-01-01 00:00:00   Whirlybird
+Groggle      Razzle  ---    up     2021-06-15 12:00:00   Flibberflam
+Wizzleplop   Dazzle  ---    up     2020-03-20 14:30:00   Flutterby
+Plinkity    Bloopie  ---    up     2021-09-08 18:00:00   Wugglepants <=> Flimflam
+Blerg       Whimsy  ---    up     2023-09-18 12:15:22   Established
+Flish       Ploofy  ---    start  2020-02-14 08:00:00   Connect       Jigglypuff: No route to host
+Glorp       Glint  ---    up     2022-05-22 10:00:00   Established
+Flumplenook  Snazzle  ---    up     2021-11-18 12:00:00   Sparkles
+Dingdong    Flibulon  ---    up     2021-08-25 16:00:00   Wizzlewhack <=> Wumplenook
+Wumplenook  Flazzle  ---    up     2020-10-12 14:00:00   Fiddledee <=> Fiddledee
+Wizzlewhack  Wizzle  ---    up     2022-03-01 08:00:00   Flibberflam <=> Flibberflam
 ```
