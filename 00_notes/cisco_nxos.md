@@ -1,9 +1,16 @@
-```
+# Cisco NX-OS Notes
+
+## Show Clock
+
+```shell
 switch# show clock
 10:50:34.146 CET Tue Feb 18 2025
 Time source is NTP
 ```
-```
+
+## Show Running Configuration for Clock Manager
+
+```shell
 switch# show run clock_manager
 
 !Command: show running-config clock_manager
@@ -11,13 +18,15 @@ switch# show run clock_manager
 !Time: Tue Feb 18 10:48:59 2025
 ```
 
-```
-switch#show environment
+## Show Environment
+
+```shell
+switch# show environment
 ...
 Temperature:
 --------------------------------------------------------------------
 Module   Sensor        MajorThresh   MinorThres   CurTemp     Status
-                       (Celsius)     (Celsius)    (Celsius)
+                        (Celsius)     (Celsius)    (Celsius)
 --------------------------------------------------------------------
 A        Sensor1         XX              XX        XX         OK
 A        Sensor2         XX              XX        XX         OK
@@ -25,7 +34,9 @@ A        Sensor3         XX              XX        XX         OK
 A        Sensor4         XX              XX        XX         OK
 ```
 
-```
+## Show Archive
+
+```shell
 switch# show archive
 The maximum archive configurations allowed is 10.
 The archiving time-period is 1439 minutes.
