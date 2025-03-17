@@ -29,8 +29,6 @@ Daemon is up and running
 ```
 bird> show protocols
 
-Here is the replaced text:
-
 Name         Proto  Table  State  Since                 Info
 Foobar       Gizmo   ---    up     2022-01-01 00:00:00   Whirlybird
 Groggle      Razzle  ---    up     2021-06-15 12:00:00   Flibberflam
