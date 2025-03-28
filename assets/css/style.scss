@@ -1,5 +1,13 @@
----
----
+@font-face {
+  font-family: 'Ubuntu Nerd Font';
+  src: url('../fonts/UbuntuNerdFont-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Ubuntu Nerd Font', sans-serif;
+}
 
 /* @import "{{ site.theme }}";  this is the default */
 
