@@ -25,6 +25,8 @@ add key to github
 
 clone the repository with the command:
 
+```bash
 git clone git@github.com:YourUserName/YourRepoName.git
+```
 
 replace "YourUserName/YourRepoName.git" with your Github username and the repository name.
