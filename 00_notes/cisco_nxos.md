@@ -20,7 +20,7 @@ switch# show run clock_manager
 
 ## Set NTP server
 ```
-ntp server <ip> vrf use-vrf <default/management>
+switch(config)#ntp server <ip> vrf use-vrf <default/management>
 ```
 
 ## Show Environment
