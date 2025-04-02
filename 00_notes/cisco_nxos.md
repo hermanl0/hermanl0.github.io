@@ -18,6 +18,11 @@ switch# show run clock_manager
 !Time: Tue Feb 18 10:48:59 2025
 ```
 
+## Set NTP server
+```
+ntp server <ip> vrf use-vrf <default/management>
+```
+
 ## Show Environment
 
 ```shell
