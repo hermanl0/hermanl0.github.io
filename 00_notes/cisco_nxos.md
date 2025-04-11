@@ -54,3 +54,11 @@ The next archive file will be named sftp://user:pass@[IPv6:address]/backup/devic
     2       sftp://user:pass@[IPv6:address]/backup/device-xyz-confg-<date-time>-1 <- Most Recent
     3
 ```
+
+## License smart transport
+
+The `license smart transport off` command is used in Cisco devices to disable the Smart Licensing transport. This command prevents the device from communicating with the Cisco Smart Software Manager (CSSM) for license registration and usage reporting.
+
+```
+switch#(config)license smart transport off 
+```
