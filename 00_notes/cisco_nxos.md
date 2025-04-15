@@ -57,8 +57,15 @@ The next archive file will be named sftp://user:pass@[IPv6:address]/backup/devic
 
 ## License smart transport
 
-The `license smart transport off` command is used in Cisco devices to disable the Smart Licensing transport. This command prevents the device from communicating with the Cisco Smart Software Manager (CSSM) for license registration and usage reporting.
+The `license smart transport off` command is used in Cisco devices to disable the Smart Licensing transport. This command prevents the device from communicating with the Cisco Smart Software Manager.
 
+```shell
+switch#(config)license smart transport off
 ```
-switch#(config)license smart transport off 
+
+## Show SNMP OID Statistics Last Access
+The output of the command will typically display the last access time for the specified OID, formatted as a timestamp. The exact output format may vary depending on the SNMP agent and OID being queried.
+
+```shell
+switch# show snmp oid-statistics last-access
 ```
