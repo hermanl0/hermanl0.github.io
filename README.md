@@ -11,6 +11,7 @@ This [repository](https://github.com/hermanl0/hermanl0.github.io) contains my va
 
 ## 00_notes
 
+* [wildcard_mask.md](00_notes/wildcard_mask.md)
 * [adding_ssh_keys_to_github.md](00_notes/adding_ssh_keys_to_github.md)
 * [bash_date_loop.md](00_notes/bash_date_loop.md)
 * [bird.md](00_notes/bird.md)
