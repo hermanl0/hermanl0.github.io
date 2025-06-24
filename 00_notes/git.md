@@ -1,8 +1,3 @@
----
-layout: default
-title: Git Reset, Branch, and Rebase Documentation
----
-
 **Git Reset, Branch, and Rebase Documentation**
 =====================================================
 
