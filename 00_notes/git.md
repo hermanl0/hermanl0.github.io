@@ -1,3 +1,8 @@
+---
+layout: default
+title: Git Reset, Branch, and Rebase Documentation
+---
+
 **Git Reset, Branch, and Rebase Documentation**
 =====================================================
 
@@ -23,7 +28,7 @@ The `git reset` command is used to reset the current branch to a previous commit
 
 ### Git Branching
 
-The `git branch` command is used to create, list, or delete branches in the Git repository. Branching is a fundamental concept in Git that allows developers to work on different features or versions of the codebase simultaneously.
+The `git branch` command is used to create, list, or delete branches in the Git repository. Branching is a fundamental concept in Git that allows developers to work on different features or versions of a project simultaneously.
 
 ### Git Rebase
 
@@ -83,7 +88,6 @@ $ git cherry-pick --no-commit <commit_hash>
 
 ### Adding, Committing, Pushing, and Pulling
 
-
 **Git Add**
 
 The `git add` command stages changes in your working directory, preparing them for commit.
@@ -124,4 +128,3 @@ The `git pull` command fetches and merges changes from a remote repository into 
 ```bash
 $ git pull origin <branch_name>
 ```
-
