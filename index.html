@@ -2,91 +2,385 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>hermanl0.github.io</title>
+  <title>hermanl0</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    :root {
-      --bg-light: #fff;
-      --bg-dark: #181a1b;
-      --text-light: #181a1b;
-      --text-dark: #fff;
+    @font-face {
+      font-family: 'Ubuntu Nerd Font';
+      src: url('assets/fonts/UbuntuNerdFont-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
     }
-    body {
-      background: var(--bg-dark);
-      color: var(--text-dark);
-      margin: 0;
-      font-family: system-ui, sans-serif;
-      min-height: 100vh;
-      transition: background 0.2s, color 0.2s;
+    :root {
+      color-scheme: dark;
+      --bg: #181c20;
+      --fg: #e8eaee;
+      --accent: #5aa2ff;
+      --accent-bg: #23304a;
+      --border: #22242a;
+      --tag-bg: #242831;
+      --tag-fg: #9cc4ff;
+      --tag-selected-bg: #5aa2ff;
+      --tag-selected-fg: #181c20;
+      --shadow: rgba(0,0,0,0.12);
     }
     body.light {
-      background: var(--bg-light);
-      color: var(--text-light);
+      --bg: #fff;
+      --fg: #222;
+      --accent: #0969da;
+      --accent-bg: #f6f8fa;
+      --border: #d0d7de;
+      --tag-bg: #f6f8fa;
+      --tag-fg: #0969da;
+      --tag-selected-bg: #0969da;
+      --tag-selected-fg: #fff;
+      --shadow: rgba(0,0,0,0.06);
     }
-    header {
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      margin: 0;
+      font-family: 'Ubuntu Nerd Font', 'Segoe UI', system-ui, sans-serif;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      transition: background 0.3s, color 0.3s;
+    }
+    .topbar {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
-      border-bottom: 1px solid #444;
+      justify-content: space-between;
+      margin-bottom: 2rem;
     }
-    .repo-link {
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 0.6em;
+    }
+    .icon-link {
+      display: inline-flex;
+      align-items: center;
       text-decoration: none;
-      color: inherit;
+      padding: 0.18em 0.7em 0.18em 0.45em;
+      border-radius: 2em;
+      background: none;
+      color: var(--accent);
+      border: 1.5px solid var(--accent-bg);
+      font-family: inherit;
       font-weight: bold;
+      font-size: 1.08em;
+      transition: background 0.14s, color 0.14s, border 0.16s;
+      line-height: 1.1;
+      gap: 0.35em;
+    }
+    .icon-link:hover {
+      background: var(--accent-bg);
+      color: var(--accent);
+      border-color: var(--accent);
+      text-decoration: none;
+    }
+    .icon-link svg {
+      width: 1.15em;
+      height: 1.15em;
+      vertical-align: middle;
+      fill: currentColor;
+      display: inline-block;
+      flex-shrink: 0;
+      min-width: 1.15em;
+      min-height: 1.15em;
+      max-width: 1.15em;
+      max-height: 1.15em;
     }
     .mode-toggle {
-      background: none;
-      border: 1px solid #888;
-      border-radius: 2em;
-      color: inherit;
-      padding: 0.5em 1.2em;
+      background: var(--accent-bg);
+      color: var(--accent);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 0.25em 1.1em;
       cursor: pointer;
+      font-family: 'Ubuntu Nerd Font', 'Segoe UI', system-ui, sans-serif;
       font-size: 1em;
-      transition: background 0.2s, color 0.2s;
+      transition: background 0.2s, color 0.2s, border 0.2s;
+      margin-left: 1em;
+      text-transform: lowercase;
     }
-    main {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 70vh;
+    h1 {
+      font-family: 'Ubuntu Nerd Font', 'Fira Mono', 'Menlo', monospace;
       font-size: 2rem;
+      margin-bottom: 0.6rem;
+      margin-top: 0;
+      text-transform: lowercase;
+    }
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .search-bar {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      background: var(--tag-bg);
+      color: var(--fg);
+      box-sizing: border-box;
+      font-family: 'Ubuntu Nerd Font', 'Segoe UI', system-ui, sans-serif;
+      outline: none;
+      transition: border 0.2s, background 0.2s;
+      text-transform: lowercase;
+    }
+    .search-bar:focus {
+      border: 1.5px solid var(--accent);
+    }
+    .tags {
+      margin-bottom: 1.3rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35em;
+    }
+    .tag {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--tag-fg);
+      border: 1px solid var(--border);
+      border-radius: 2em;
+      padding: 0.25em 0.85em;
+      font-size: 1em;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s, color 0.15s;
+      font-family: 'Ubuntu Nerd Font', 'Segoe UI', system-ui, sans-serif;
+      margin-bottom: 0.15em;
+      text-transform: lowercase;
+    }
+    .tag.selected {
+      background: var(--tag-selected-bg);
+      color: var(--tag-selected-fg);
+      border-color: var(--tag-selected-bg);
+    }
+    .results {
+      margin-top: 2rem;
+    }
+    .result {
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+      transition: background 0.18s;
+    }
+    .result:last-child {
+      border-bottom: none;
+    }
+    .result a {
+      color: var(--accent);
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-family: 'Ubuntu Nerd Font', 'Segoe UI', system-ui, sans-serif;
+      word-break: break-all;
+      text-transform: lowercase;
+    }
+    .result a:hover { text-decoration: underline; }
+    .result p {
+      color: var(--tag-fg);
+      margin: 0.3em 0 0 0;
+      font-size: 0.97em;
+      font-family: 'Ubuntu Nerd Font', 'Segoe UI', system-ui, sans-serif;
+      text-transform: lowercase;
+    }
+    @media (max-width: 600px) {
+      body { margin: 1rem }
+      .results { margin-top: 1rem }
+      .topbar { flex-direction: column; gap: 1em }
+      .links { flex-wrap: wrap; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <a class="repo-link" href="https://github.com/hermanl0/hermanl0.github.io" target="_blank" rel="noopener">Repo</a>
-    <button class="mode-toggle" id="mode-toggle">Light Mode</button>
-  </header>
-  <main>
-    lo
-  </main>
+  <div class="topbar">
+    <div class="links">
+      <a class="icon-link" href="https://github.com/hermanl0/hermanl0.github.io" target="_blank" title="main_repository" aria-label="GitHub main repository">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M12 0.3C5.37 0.3 0 5.67 0 12.29c0 5.28 3.44 9.75 8.2 11.33.6.12.82-.26.82-.58 0-.29-.01-1.05-.02-2.06-3.34.73-4.04-1.48-4.04-1.48-.55-1.38-1.34-1.74-1.34-1.74-1.09-.74.08-.72.08-.72 1.21.09 1.85 1.26 1.85 1.26 1.07 1.85 2.8 1.32 3.48 1.01.11-.78.42-1.32.76-1.62-2.67-.3-5.47-1.33-5.47-5.9 0-1.3.46-2.36 1.22-3.19-.12-.3-.53-1.52.12-3.17 0 0 1-.32 3.3 1.21a11.44 11.44 0 0 1 3-.4c1.02.01 2.05.14 3 .4 2.3-1.53 3.3-1.21 3.3-1.21.65 1.65.24 2.87.12 3.17.76.83 1.22 1.89 1.22 3.19 0 4.58-2.8 5.6-5.47 5.9.43.37.82 1.1.82 2.22 0 1.61-.01 2.91-.01 3.3 0 .32.22.7.83.58C20.57 22.04 24 17.57 24 12.29 24 5.67 18.63 0.3 12 0.3z"/>
+        </svg>
+        <span style="margin-left:0.2em;">main_repository</span>
+      </a>
+      <a class="icon-link" href="https://www.linkedin.com/in/hermanl0/" target="_blank" title="linkedin" aria-label="LinkedIn Profile">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.27c-.97 0-1.75-.78-1.75-1.73s.78-1.73 1.75-1.73 1.75.78 1.75 1.73-.78 1.73-1.75 1.73zm15.5 11.27h-3v-5.6c0-1.34-.03-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.97v5.69h-3v-10h2.88v1.36h.04c.4-.77 1.37-1.59 2.82-1.59 3.01 0 3.57 1.98 3.57 4.56v5.67z"/>
+        </svg>
+        <span style="margin-left:0.2em;">linkedin</span>
+      </a>
+    </div>
+    <button class="mode-toggle" id="modeToggle" aria-label="Toggle dark/light mode">🌑 dark</button>
+  </div>
+  <h1>hermanl0</h1>
+  <label for="search" class="visually-hidden">Search notes and projects</label>
+  <input class="search-bar" id="search" type="text" placeholder="search_notes_and_projects..." autocomplete="off" aria-label="Search notes and projects">
+  <div class="tags" id="tags"></div>
+  <div class="results" id="results">loading...</div>
   <script>
-    // Set dark mode as default
-    function setMode(isDark) {
-      if (isDark) {
-        document.body.classList.remove('light');
-        document.getElementById('mode-toggle').textContent = 'Light Mode';
-        localStorage.setItem('theme', 'dark');
-      } else {
+    // ---- config ----
+    const owner = "hermanl0";
+    const repo = "hermanl0.github.io";
+    const folders = ["00_notes", "01_projects"];
+
+    // ---- tag definitions ----
+    const tagList = [
+      { tag: "networking", keywords: ["network", "wildcard", "cisco", "bird", "mtr", "ip address", "routing", "snmp", "ntp"] },
+      { tag: "linux_cli", keywords: ["bash", "shell", "linux", "command", "cli"] },
+      { tag: "security", keywords: ["ssh", "key", "firewalld", "security"] },
+      { tag: "version_control", keywords: ["git", "clone", "commit", "branch", "rebase"] },
+      { tag: "encoding_decoding", keywords: ["base64", "encode", "decode"] },
+      { tag: "automation_scripting", keywords: ["script", "powershell", "automation"] },
+      { tag: "systems_administration", keywords: ["device", "environment", "snmp", "ntp", "config", "manager", "archive"] }
+    ];
+
+    // ---- helpers ----
+    function normalizeName(name) {
+      return name.replace(/[\s\-]+/g, '_').toLowerCase();
+    }
+
+    // ---- theme ----
+    const modeToggleBtn = document.getElementById('modeToggle');
+    function setMode(light) {
+      if (light) {
         document.body.classList.add('light');
-        document.getElementById('mode-toggle').textContent = 'Dark Mode';
-        localStorage.setItem('theme', 'light');
+        modeToggleBtn.textContent = "🌕 light";
+      } else {
+        document.body.classList.remove('light');
+        modeToggleBtn.textContent = "🌑 dark";
+      }
+    }
+    setMode(false);
+    modeToggleBtn.onclick = () => {
+      setMode(!document.body.classList.contains('light'));
+    };
+
+    // ---- state ----
+    let files = [];
+    let fileTags = {}; // { path: [tag] }
+    let selectedTag = null;
+
+    // ---- fetch files and content for tagging ----
+    async function fetchFiles() {
+      let allFiles = [];
+      for (const folder of folders) {
+        try {
+          const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${folder}`);
+          if (!res.ok) {
+            console.error(`Failed to fetch folder: ${folder}`, res.statusText);
+            continue;
+          }
+          const items = await res.json();
+          for (const file of items) {
+            if (file.name.endsWith('.md')) {
+              allFiles.push({
+                name: normalizeName(file.name.replace(/\.md$/, '')),
+                path: normalizeName(file.path),
+                url: `${file.path}`,
+                folder: normalizeName(folder),
+                raw_url: file.download_url
+              });
+            }
+          }
+        } catch (e) {
+          console.error(`Error fetching files from ${folder}:`, e);
+        }
+      }
+      return allFiles;
+    }
+
+    // ---- get file tags by content and filename (only one tag per file) ----
+    async function tagFiles(files) {
+      const result = {};
+      for (const f of files) {
+        let text = f.name.toLowerCase();
+        try {
+          const res = await fetch(f.raw_url);
+          if (res.ok) text += " " + (await res.text()).toLowerCase();
+        } catch (e) {
+          console.error(`Error fetching file content: ${f.raw_url}`, e);
+        }
+        const found = tagList.find(tagObj => tagObj.keywords.some(word => text.includes(word)));
+        result[f.path] = found ? [found.tag] : [];
+      }
+      return result;
+    }
+
+    // ---- render tags ----
+    function renderTags() {
+      const tagDiv = document.getElementById('tags');
+      tagDiv.innerHTML = '';
+      for (const tagObj of tagList) {
+        const count = Object.values(fileTags).filter(tags => tags.includes(tagObj.tag)).length;
+        if (count === 0) continue;
+        const el = document.createElement('span');
+        el.className = 'tag' + (selectedTag === tagObj.tag ? ' selected' : '');
+        el.textContent = tagObj.tag + (count > 1 ? ` (${count})` : '');
+        el.tabIndex = 0;
+        el.setAttribute('role', 'button');
+        el.setAttribute('aria-label', `${tagObj.tag}${count > 1 ? ` (${count})` : ''}`);
+        el.onclick = () => {
+          selectedTag = (selectedTag === tagObj.tag) ? null : tagObj.tag;
+          renderTags();
+          renderResults();
+        };
+        el.onkeypress = (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            el.onclick();
+          }
+        };
+        tagDiv.appendChild(el);
       }
     }
 
-    // Load saved theme
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-      setMode(false);
-    } else {
-      setMode(true);
+    // ---- render results ----
+    function renderResults() {
+      const q = normalizeName(document.getElementById('search').value.trim());
+      let filtered = files;
+      if (selectedTag) {
+        filtered = filtered.filter(f => fileTags[f.path] && fileTags[f.path].includes(selectedTag));
+      }
+      if (q) {
+        filtered = filtered.filter(f => f.name.includes(q));
+      }
+      const resDiv = document.getElementById('results');
+      if (files.length === 0) {
+        resDiv.innerHTML = '<div>no files found.</div>';
+        return;
+      }
+      if (filtered.length === 0) {
+        resDiv.innerHTML = '<div>no results found.</div>';
+        return;
+      }
+      resDiv.innerHTML = filtered.map(f =>
+        `<div class="result">
+          <a href="${f.url}">${f.name}</a>
+          <p>in <strong>${f.folder}</strong>${fileTags[f.path]?.length ? " | tag: " + fileTags[f.path][0] : ""}</p>
+        </div>`
+      ).join('');
     }
 
-    document.getElementById('mode-toggle').addEventListener('click', () => {
-      setMode(!document.body.classList.contains('light'));
+    // ---- main ----
+    fetchFiles().then(async fetched => {
+      files = fetched;
+      if (!files.length) {
+        renderResults();
+        return;
+      }
+      fileTags = await tagFiles(files);
+      renderTags();
+      renderResults();
     });
+
+    document.getElementById('search').addEventListener('input', renderResults);
   </script>
 </body>
 </html>
