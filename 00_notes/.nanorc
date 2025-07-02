@@ -1,0 +1,56 @@
+# System-Wide nano Configuration
+# -------------------------------
+# This is the global configuration file for GNU nano. User-specific settings
+# should be placed in ~/.nanorc. See nanorc(5) for detailed documentation.
+
+# 📌 1. Core Configuration
+# -------------------------
+# Basic editor behavior settings
+set constantshow        # Always show cursor position in status bar
+set linenumbers         # Display line numbers
+set mouse               # Enable mouse support
+set nowrap              # Disable automatic line wrapping
+set smooth              # Use smooth scrolling
+set speller "hunspell"  # Use hunspell as the default spell checker
+
+# 📌 2. Display Options
+# ----------------------
+# Visual preferences and interface settings
+set numbercolor cyan    # Set line numbers to cyan
+# set statuscolor brightwhite,green  # Uncomment to customize status bar color
+# set errorcolor brightwhite,red     # Customize error highlighting
+
+# 📌 3. File Handling
+# -------------------
+# File operations and behavior
+# set backup              # Enable file backups (uncomment to use)
+# set operatingdir ""     # Restrict file operations to a specific directory
+
+# 📌 4. Search & Navigation
+# --------------------------
+# Search and movement settings
+# set casesensitive       # Enable case-sensitive searches (uncomment to use)
+# set smarthome           # Enable smart Home key behavior
+
+# 📌 5. Syntax Coloring
+# ----------------------
+# Include default syntax definitions
+include "/usr/share/nano/*.nanorc"
+
+# 📌 6. Key Bindings
+# -------------------
+# Custom key mappings (uncomment to use)
+# bind Del backspace all  # Fix Backspace key behavior
+# bind M-B cutwordleft main
+# bind M-N cutwordright main
+
+# 📌 7. Advanced Options
+# -----------------------
+# Less commonly used settings
+# set historylog          # Remember search/replace history
+# set positionlog         # Remember cursor positions between sessions
+# set regexp              # Use extended regular expressions by default
+# set rebinddelete        # Fix Backspace/Delete conflicts
+# set rebindkeypad        # Fix numeric keypad issues
+# set showcursor          # Highlight selected items in file browser
+# set trimblanks          # Remove trailing whitespace during formatting
