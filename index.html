@@ -2,419 +2,91 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>hermanl0</title>
+  <title>hermanl0.github.io</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="hermanl0's personal website showcasing notes and projects.">
-
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="hermanl0's Website">
-  <meta property="og:description" content="Explore notes and projects by hermanl0.">
-  <meta property="og:image" content="https://hermanl0.github.io/assets/preview.png">
-  <meta property="og:url" content="https://hermanl0.github.io">
-  <meta property="og:type" content="website">
-
-  <!-- Security -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://github.com; style-src 'self' 'unsafe-inline'; script-src 'self' https://api.github.com; connect-src https://api.github.com;">
-
   <style>
-    @font-face {
-      font-family: 'Ubuntu Nerd Font';
-      src: url('assets/fonts/UbuntuNerdFont-Regular.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
     :root {
-      color-scheme: dark;
-      --bg: #181c20;
-      --fg: #e8eaee;
-      --accent: #5aa2ff;
-      --accent-bg: #23304a;
-      --border: #22242a;
-      --shadow: rgba(0,0,0,0.12);
-    }
-    body.light {
-      --bg: #fff;
-      --fg: #222;
-      --accent: #0969da;
-      --accent-bg: #f6f8fa;
-      --border: #d0d7de;
-      --shadow: rgba(0,0,0,0.06);
+      --bg-light: #fff;
+      --bg-dark: #181a1b;
+      --text-light: #181a1b;
+      --text-dark: #fff;
     }
     body {
-      background: var(--bg);
-      color: var(--fg);
+      background: var(--bg-dark);
+      color: var(--text-dark);
       margin: 0;
-      font-family: 'Ubuntu Nerd Font', 'Segoe UI', system-ui, sans-serif;
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      transition: background 0.3s, color 0.3s;
+      font-family: system-ui, sans-serif;
+      min-height: 100vh;
+      transition: background 0.2s, color 0.2s;
+    }
+    body.light {
+      background: var(--bg-light);
+      color: var(--text-light);
     }
     header {
       display: flex;
-      flex-direction: column;
-      gap: 1em;
-      margin-bottom: 2rem;
-    }
-    nav {
-      display: flex;
-      align-items: center;
       justify-content: space-between;
-    }
-    .links {
-      display: flex;
       align-items: center;
-      gap: 0.6em;
-      flex-wrap: wrap;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #444;
     }
-    .icon-link {
-      display: inline-flex;
-      align-items: center;
+    .repo-link {
       text-decoration: none;
-      padding: 0.18em 0.7em 0.18em 0.45em;
-      border-radius: 2em;
-      background: none;
-      color: var(--accent);
-      border: 1.5px solid var(--accent-bg);
-      font-family: inherit;
+      color: inherit;
       font-weight: bold;
-      font-size: 1.08em;
-      transition: background 0.14s, color 0.14s, border 0.16s;
-      line-height: 1.1;
-      gap: 0.35em;
-    }
-    .icon-link:hover, .icon-link:focus {
-      background: var(--accent-bg);
-      color: var(--accent);
-      border-color: var(--accent);
-      text-decoration: none;
-      outline: 2px solid var(--accent);
-    }
-    .icon-link svg {
-      width: 1.15em;
-      height: 1.15em;
-      vertical-align: middle;
-      fill: currentColor;
-      display: inline-block;
-      flex-shrink: 0;
-      min-width: 1.15em;
-      min-height: 1.15em;
-      max-width: 1.15em;
-      max-height: 1.15em;
-      aria-hidden: true;
-      focusable: false;
     }
     .mode-toggle {
-      background: var(--accent-bg);
-      color: var(--accent);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      padding: 0.25em 1.1em;
+      background: none;
+      border: 1px solid #888;
+      border-radius: 2em;
+      color: inherit;
+      padding: 0.5em 1.2em;
       cursor: pointer;
-      font-family: 'Ubuntu Nerd Font', 'Segoe UI', system-ui, sans-serif;
       font-size: 1em;
-      transition: background 0.2s, color 0.2s, border 0.2s;
-      margin-left: 1em;
-      text-transform: lowercase;
-    }
-    .mode-toggle:focus {
-      outline: 2px solid var(--accent);
-    }
-    h1 {
-      font-family: 'Ubuntu Nerd Font', 'Fira Mono', 'Menlo', monospace;
-      font-size: 2rem;
-      margin-bottom: 0.6rem;
-      margin-top: 0;
-      text-transform: lowercase;
+      transition: background 0.2s, color 0.2s;
     }
     main {
-      width: 100%;
-    }
-    .search-bar {
-      width: 100%;
-      padding: 0.5rem 1rem;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      background: var(--accent-bg);
-      color: var(--fg);
-      box-sizing: border-box;
-      font-family: 'Ubuntu Nerd Font', 'Segoe UI', system-ui, sans-serif;
-      outline: none;
-      transition: border 0.2s, background 0.2s;
-      text-transform: lowercase;
-    }
-    .search-bar:focus {
-      border: 1.5px solid var(--accent);
-    }
-    .results {
-      margin-top: 2rem;
-      min-height: 2em;
-    }
-    .spinner {
       display: flex;
-      align-items: center;
       justify-content: center;
-      min-height: 2em;
-    }
-    .spinner:after {
-      content: '';
-      display: inline-block;
-      width: 1.5em;
-      height: 1.5em;
-      border: 3px solid var(--accent);
-      border-top-color: transparent;
-      border-radius: 50%;
-      animation: spin 0.7s linear infinite;
-      margin-left: 0.5em;
-    }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-    .results details {
-      background: var(--accent-bg);
-      border-radius: 6px;
-      margin-bottom: 1em;
-      border: 1px solid var(--border);
-      padding: 0.5em 0.6em;
-    }
-    .results summary {
-      cursor: pointer;
-      outline: none;
-      font-weight: bold;
-      font-family: inherit;
-      font-size: 1.05em;
-      color: var(--accent);
-      margin: -0.5em -0.6em 0.4em -0.6em;
-      padding: 0.5em 0.6em;
-      border-bottom: 1px solid var(--border);
-      background: var(--bg);
-      border-radius: 6px 6px 0 0;
-    }
-    .results .result {
-      border: none;
-      padding: 0.7em 0 0.7em 1em;
-    }
-    .results .result:last-child {
-      border: none;
-    }
-    .result a {
-      color: var(--accent);
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 1.1rem;
-      font-family: 'Ubuntu Nerd Font', 'Segoe UI', system-ui, sans-serif;
-      word-break: break-all;
-      text-transform: lowercase;
-    }
-    .result a:hover { text-decoration: underline; }
-    .result p {
-      color: var(--accent);
-      margin: 0.3em 0 0 0;
-      font-size: 0.97em;
-      font-family: 'Ubuntu Nerd Font', 'Segoe UI', system-ui, sans-serif;
-      text-transform: lowercase;
-    }
-    .error-message {
-      color: red;
-      font-weight: bold;
-      padding: 1em;
-      border: 1px solid var(--border);
-      background: #ffd6d6;
-      border-radius: 6px;
-      margin: 1em 0;
-    }
-    @media (max-width: 600px) {
-      body { margin: 1rem }
-      .results { margin-top: 1rem }
-      header { gap: 0.5em }
-      nav { flex-direction: column; gap: 1em }
-      .links { flex-wrap: wrap; }
+      align-items: center;
+      height: 70vh;
+      font-size: 2rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <nav>
-      <div class="links">
-        <a class="icon-link" href="https://github.com/hermanl0/hermanl0.github.io" target="_blank" title="main_repository" aria-label="GitHub repository">
-          <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-            <path d="M12 0.3C5.37 0.3 0 5.67 0 12.29c0 5.28 3.44 9.75 8.2 11.33.6.12.82-.26.82-.58 0-.29-.01-1.05-.02-2.06-3.34.73-4.04-1.46-4.04-1.46-.54-1.36-1.32-1.73-1.32-1.73-1.08-.73.08-.72.08-.72 1.2.09 1.83 1.24 1.83 1.24 1.06 1.83 2.8 1.3 3.48.99.11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.91 0-1.3.46-2.36 1.22-3.19-.12-.3-.53-1.52.12-3.16 0 0 1-.32 3.3 1.22a11.5 11.5 0 0 1 6 0C17 5.15 18 5.47 18 5.47c.65 1.64.24 2.86.12 3.16.76.83 1.22 1.89 1.22 3.19 0 4.59-2.8 5.61-5.48 5.91.43.37.81 1.1.81 2.22 0 1.6-.01 2.9-.01 3.29 0 .32.21.7.83.58C20.57 22.04 24 17.57 24 12.29 24 5.67 18.63 0.3 12 0.3z"/>
-          </svg>
-          <span style="margin-left:0.2em;">main_repository</span>
-        </a>
-        <a class="icon-link" href="https://www.linkedin.com/in/hermanl0/" target="_blank" title="linkedin" aria-label="LinkedIn profile">
-          <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-            <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.3c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75c.96 0 1.75.78 1.75 1.75s-.79 1.75-1.75 1.75zm13.5 11.3h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.89v1.36h.04c.4-.75 1.36-1.54 2.8-1.54 3 0 3.55 1.97 3.55 4.54v5.64z"/>
-          </svg>
-        </a>
-      </div>
-      <button class="mode-toggle" id="modeToggle" aria-label="Toggle dark mode" tabindex="0">🌑 dark</button>
-    </nav>
-    <h1>hermanl0</h1>
+    <a class="repo-link" href="https://github.com/hermanl0/hermanl0.github.io" target="_blank" rel="noopener">Repo</a>
+    <button class="mode-toggle" id="mode-toggle">Light Mode</button>
   </header>
   <main>
-    <input class="search-bar" id="search" type="text" placeholder="search in content of notes and projects..." autocomplete="off" aria-label="Search notes and projects">
-    <div class="results" id="results"><span class="spinner"></span></div>
+    lo
   </main>
   <script>
-    // ---- config ----
-    const owner = "hermanl0";
-    const repo = "hermanl0.github.io";
-    const folders = ["00_notes", "01_projects"];
-
-    // ---- theme ----
-    const modeToggleBtn = document.getElementById('modeToggle');
-    function setMode(light) {
-      if (light) {
-        document.body.classList.add('light');
-        modeToggleBtn.textContent = "🌕 light";
-        modeToggleBtn.setAttribute("aria-label", "Switch to dark mode");
-      } else {
+    // Set dark mode as default
+    function setMode(isDark) {
+      if (isDark) {
         document.body.classList.remove('light');
-        modeToggleBtn.textContent = "🌑 dark";
-        modeToggleBtn.setAttribute("aria-label", "Switch to light mode");
-      }
-    }
-    setMode(false);
-    modeToggleBtn.onclick = () => setMode(!document.body.classList.contains('light'));
-    modeToggleBtn.onkeyup = (e) => { if (e.key === 'Enter' || e.key === ' ') modeToggleBtn.click(); };
-
-    // ---- state ----
-    let files = [];
-
-    // ---- fetch files and contents (only in allowed folders) ----
-    async function fetchAllowedFiles() {
-      let allFiles = [];
-      for (const folder of folders) {
-        try {
-          const url = `https://api.github.com/repos/${owner}/${repo}/contents/${folder}`;
-          const res = await fetch(url);
-          if (!res.ok) continue;
-          const items = await res.json();
-          for (const item of items) {
-            if (item.type === 'file') {
-              allFiles.push({
-                name: item.name,
-                path: item.path,
-                folder: folder,
-                url: `https://github.com/${owner}/${repo}/blob/main/${item.path}`,
-                raw_url: item.download_url,
-                content: null
-              });
-            }
-            if (item.type === 'dir') {
-              const subRes = await fetchAllowedFilesInSubDir(item.path, folder);
-              allFiles = allFiles.concat(subRes);
-            }
-          }
-        } catch (e) {
-          console.error(`Error fetching files from ${folder}:`, e);
-        }
-      }
-      return allFiles;
-    }
-    async function fetchAllowedFilesInSubDir(dirPath, folder) {
-      let arr = [];
-      try {
-        const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${dirPath}`);
-        if (!res.ok) return arr;
-        const items = await res.json();
-        for (const item of items) {
-          if (item.type === 'file') {
-            arr.push({
-              name: item.name,
-              path: item.path,
-              folder: folder,
-              url: `https://github.com/${owner}/${repo}/blob/main/${item.path}`,
-              raw_url: item.download_url,
-              content: null
-            });
-          }
-          if (item.type === 'dir') {
-            arr = arr.concat(await fetchAllowedFilesInSubDir(item.path, folder));
-          }
-        }
-      } catch (e) {
-        console.error(`Error fetching files from subdir ${dirPath}:`, e);
-      }
-      return arr;
-    }
-
-    async function fetchFileContents(fileArr) {
-      for (const file of fileArr) {
-        if (file.raw_url) {
-          try {
-            const res = await fetch(file.raw_url);
-            if (res.ok) {
-              file.content = await res.text();
-            } else {
-              file.content = '';
-            }
-          } catch (e) {
-            file.content = '';
-            console.error(`Error fetching content for file ${file.name}:`, e);
-          }
-        }
+        document.getElementById('mode-toggle').textContent = 'Light Mode';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.body.classList.add('light');
+        document.getElementById('mode-toggle').textContent = 'Dark Mode';
+        localStorage.setItem('theme', 'light');
       }
     }
 
-    function renderResults() {
-      const q = document.getElementById('search').value.trim().toLowerCase();
-      let filtered = files;
-      if (q) {
-        filtered = filtered.filter(f =>
-          (f.name.toLowerCase().includes(q)) ||
-          (f.content && f.content.toLowerCase().includes(q))
-        );
-      }
-      // Group by folder and subfolder
-      const grouped = {};
-      for (const f of filtered) {
-        // Group by first and second part of path
-        const parts = f.path.split('/');
-        const folder = parts[0];
-        const subfolder = parts.length > 2 ? parts[1] : null;
-        const key = subfolder ? `${folder}/${subfolder}` : folder;
-        if (!grouped[key]) grouped[key] = [];
-        grouped[key].push(f);
-      }
-      const resDiv = document.getElementById('results');
-      if (filtered.length === 0) {
-        resDiv.innerHTML = '<div class="error-message" role="alert">No results found.</div>';
-        return;
-      }
-      resDiv.innerHTML = Object.keys(grouped).sort().map(key => {
-        const display = key.replace('_', ' ');
-        return `
-          <details>
-            <summary>${display} (${grouped[key].length})</summary>
-            ${grouped[key].map(f =>
-              `<div class="result">
-                <a href="${f.url}" target="_blank">${f.name}</a>
-                <p>in <strong>${f.folder}</strong></p>
-              </div>`
-            ).join('')}
-          </details>
-        `;
-      }).join('');
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      setMode(false);
+    } else {
+      setMode(true);
     }
 
-    (async function(){
-      try {
-        files = await fetchAllowedFiles();
-        await fetchFileContents(files);
-        renderResults();
-      } catch (e) {
-        document.getElementById('results').innerHTML = '<div class="error-message" role="alert">An error occurred while loading files.</div>';
-        console.error("Error during initial load:", e);
-      }
-    })();
-
-    document.getElementById('search').addEventListener('input', renderResults);
+    document.getElementById('mode-toggle').addEventListener('click', () => {
+      setMode(!document.body.classList.contains('light'));
+    });
   </script>
 </body>
 </html>
