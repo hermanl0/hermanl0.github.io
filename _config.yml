@@ -13,10 +13,10 @@ author: hermanl0
 markdown: kramdown
 
 # Exclude files or folders from build
-exclude:
-  - README.md
-  - node_modules/
-  - vendor/
+#exclude:
+#  - README.md
+#  - node_modules/
+#  - vendor/
 
 # Include any custom collections (uncomment and customize if needed)
 # collections:
