@@ -9,7 +9,7 @@ Welcome to my personal blog and portfolio! This site is built with Jekyll and ho
 
 Learn how to automate network performance testing with iperf3 and present the results on GitHub Pages. This solution creates markdown reports automatically when clients connect to the iperf3 server.
 
-![iperf3 Workflow](./img/iperf-flow-dark.png)
+<img src="./img/iperf-flow-dark.png" alt="iperf3 Workflow" width="500">
 
 ---
 
@@ -18,7 +18,7 @@ Learn how to automate network performance testing with iperf3 and present the re
 
 Learn how to set up your own local Large Language Model using Ollama and Open WebUI. This tutorial walks you through installing Ollama on Ubuntu, setting up Docker, and configuring Open WebUI for a complete local AI experience.
 
-<img src="./img/local-llm.png" alt="Local LLM Setup" width="300">
+<img src="./img/local-llm.png" alt="Local LLM Setup" width="500">
 
 ---
 
