@@ -22,6 +22,13 @@ Learn how to set up your own local Large Language Model using Ollama and Open We
 
 ---
 
+### [Useful Cisco Commands for Network Administration (IOS and NX-OS)](./_posts/cisco-useful-commands.md)
+*2024*
+
+A comprehensive guide to essential Cisco commands for network administrators working with both IOS and NX-OS platforms.
+
+---
+
 ## About Me
 
 I'm a technology enthusiast with interests in artificial intelligence, networking, and open-source software. This blog is where I share my experiences, tutorials, and insights on various tech topics.
