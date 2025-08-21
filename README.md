@@ -4,6 +4,15 @@ Welcome to my personal blog and portfolio! This site is built with Jekyll and ho
 
 ## Latest Blog Posts
 
+### [Automated iperf3 Reports to GitHub Pages](./_posts/automated-iperf3-reports-to-github-pages.md)
+*2024*
+
+Learn how to automate network performance testing with iperf3 and present the results on GitHub Pages. This solution creates markdown reports automatically when clients connect to the iperf3 server.
+
+![iperf3 Workflow](./img/iperf-flow-dark.png)
+
+---
+
 ### [Setting up Local LLM with Ollama and Open WebUI](./_posts/local-ollama-webui.md)
 *2024*
 
