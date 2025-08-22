@@ -1,6 +1,6 @@
 # hermanl0's Personal Site
 
-Welcome to my personal blog and portfolio! This site is built with Jekyll and hosted on GitHub Pages.
+Welcome to my personal blog! 
 
 ## Latest Blog Posts
 
@@ -28,10 +28,6 @@ Learn how to set up your own local Large Language Model using Ollama and Open We
 A comprehensive guide to essential Cisco commands for network administrators working with both IOS and NX-OS platforms.
 
 ---
-
-## About Me
-
-I'm a technology enthusiast with interests in artificial intelligence, networking, and open-source software. This blog is where I share my experiences, tutorials, and insights on various tech topics.
 
 ## Connect With Me
 
