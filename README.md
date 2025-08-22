@@ -45,6 +45,5 @@ I'm a technology enthusiast with interests in artificial intelligence, networkin
 - [All Blog Posts](./_posts/)
 - [GitHub Profile](https://github.com/hermanl0)
 
----
 
-*Subscribe to the [RSS Feed](feed.xml) to stay updated with my latest posts.*
+
