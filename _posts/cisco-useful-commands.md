@@ -7,8 +7,6 @@ author: hermanl0
 
 As a network engineer, working with Cisco devices requires familiarity with both IOS and NX-OS commands. This guide covers essential commands that every network administrator should know when managing Cisco devices. When implementing the configurations, please verify which platform you are using as some commands may vary between IOS and NX-OS.
 
-**Important:** Before implementing any commands, verify which platform you are using (IOS or NX-OS) as some commands may vary between platforms. Look at the specific commands provided and evaluate whether they apply to your IOS or NX-OS environment before implementation.
-
 ## Show Clock
 
 Checking the system time is fundamental for troubleshooting and log correlation:
