@@ -15,13 +15,10 @@ The python script listen continuously for new connections. When a new test is co
 
 ## Dependencies
 
-```
-iperf3 installed on a server, listening on port 5201
+* iperf3 installed on a server, listening on port 5201
+* iperf3 installed on a client, this can be an app on your phone
+* a github repo
 
-iperf3 installed on a client, this can be an app on your phone
-
-a github repo
-```
 
 ```yaml
 (optional) _config.yml file: with the following
