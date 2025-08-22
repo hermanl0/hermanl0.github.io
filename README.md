@@ -1,7 +1,3 @@
-# hermanl0's Personal Site
-
-Welcome to my personal blog! 
-
 ## Latest Blog Posts
 
 ### [Automated iperf3 Reports to GitHub Pages](https://github.com/hermanl0/hermanl0.github.io/blob/main/_posts/automated-iperf3-reports-to-github-pages.md)
