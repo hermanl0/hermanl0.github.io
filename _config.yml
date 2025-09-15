@@ -9,6 +9,10 @@ author: hermanl0
 #   - jekyll-feed
 #   - jekyll-seo-tag
 
+nav:
+  - name: "Pinned: Cisco Useful Commands"
+    link: "https://github.com/hermanl0/hermanl0.github.io/blob/main/_posts/cisco-useful-commands.md"
+
 # Optional: Specify markdown processor and options
 markdown: kramdown
 
