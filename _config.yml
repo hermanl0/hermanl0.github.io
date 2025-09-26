@@ -3,9 +3,6 @@ description: A simple portfolio and blog powered by Jekyll and GitHub Pages.
 url: "https://hermanl0.github.io"
 author: hermanl0
 
-theme: minima
-
-minima:
-  skin: dark # or 'dark' if you want always dark
+theme: primer
 
 markdown: kramdown
