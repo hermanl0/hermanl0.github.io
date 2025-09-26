@@ -1,27 +1,11 @@
-theme: jekyll-theme-primer
 title: hermanl0’s Personal Site
 description: A simple portfolio and blog powered by Jekyll and GitHub Pages.
 url: "https://hermanl0.github.io"
 author: hermanl0
 
-# Optional: Add plugins for extra features (uncomment if needed)
-# plugins:
-#   - jekyll-feed
-#   - jekyll-seo-tag
+remote_theme: jekyll/minima
 
+minima:
+  skin: dark # or 'dark' if you want always dark
 
-# Optional: Specify markdown processor and options
 markdown: kramdown
-
-# Exclude files or folders from build
-#exclude:
-#  - README.md
-#  - node_modules/
-#  - vendor/
-
-# Include any custom collections (uncomment and customize if needed)
-# collections:
-#   my_collection:
-#     output: true
-
-# Future: Configure theme options or navigation settings here
