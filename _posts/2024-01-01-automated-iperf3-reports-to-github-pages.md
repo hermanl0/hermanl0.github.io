@@ -3,6 +3,7 @@ layout: post
 title: "Automated iperf3 Reports to GitHub Pages"
 date: 2024-01-01
 author: hermanl0
+categories: blog
 ---
 
 I was curious about automating markdown reports using data I had gathered. Iperf3 is an excellent tool for conducting network performance tests, especially for Wi-Fi connections, which can vary based on signal attributes. Github pages also offers a good way to present markdown files. When combined, these elements create a practical method for presenting automated reports on a website without requiring a dedicated web server outside of github.
