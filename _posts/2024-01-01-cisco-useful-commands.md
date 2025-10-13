@@ -3,6 +3,7 @@ layout: post
 title: "Useful Cisco Commands for Network Administration (IOS and NX-OS)"
 date: 2024-01-01
 author: hermanl0
+categories: blog
 ---
 
 As a network engineer, working with Cisco devices requires familiarity with both IOS and NX-OS commands. This guide covers essential commands that every network administrator should know when managing Cisco devices. When implementing the configurations, please verify which platform you are using as some commands may vary between IOS and NX-OS.
