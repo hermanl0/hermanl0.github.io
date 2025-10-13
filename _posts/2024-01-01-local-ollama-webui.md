@@ -3,6 +3,7 @@ layout: post
 title: "Setting up Local LLM with Ollama and Open WebUI"
 date: 2024-01-01
 author: hermanl0
+categories: blog
 ---
 
 [Open WebUI](https://github.com/open-webui/open-webui) + [Ollama](https://ollama.com/) is pretty cool and easy to set up.
