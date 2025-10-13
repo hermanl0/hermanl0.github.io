@@ -8,7 +8,7 @@ categories: blog
 
 [Open WebUI](https://github.com/open-webui/open-webui) + [Ollama](https://ollama.com/) is pretty cool and easy to set up.
 
-![Local LLM Setup](../img/local-llm.png)
+![Local LLM Setup](/img/local-llm.png)
 
 ## Prepare Ubuntu
 
@@ -75,12 +75,12 @@ ghcr.io/open-webui/open-webui:main
 
 Now your web server should be available at port 8080. The first account you create will be an admin account.
 
-![Open WebUI Sign In/Up](../img/open-web-ui-sign-in-up.jpg)
+![Open WebUI Sign In/Up](/img/open-web-ui-sign-in-up.jpg)
 
 Next, you can enable memories: Settings - Personalization - Memory
 
-![Apple Memory](../img/apple-memory.jpg)
+![Apple Memory](/img/apple-memory.jpg)
 
 Now your local llm will also remember the implanted memories:
 
-![Apples Prefer Oranges](../img/apples-prefer-oranges.jpg)
+![Apples Prefer Oranges](/img/apples-prefer-oranges.jpg)
