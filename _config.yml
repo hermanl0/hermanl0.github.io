@@ -1,6 +1,6 @@
-# title: hermanl0
+title: hermanl0
 # description: A simple portfolio and blog powered by Jekyll and GitHub Pages.
-# url: "https://hermanl0.github.io"
+ url: "https://github.com/hermanl0"
 
 theme: minima
 markdown: kramdown
