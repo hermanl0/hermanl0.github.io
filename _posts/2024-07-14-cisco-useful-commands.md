@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Useful Cisco Commands for Network Administration (IOS and NX-OS)"
-date: 2024-01-01
+date: 2024-07-14
 author: hermanl0
 categories: blog
 ---
