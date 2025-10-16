@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Automated iperf3 Reports to GitHub Pages"
-date: 2024-01-01
+date: 2024-02-12
 author: hermanl0
 categories: blog
 ---
