@@ -1,17 +1,14 @@
+<!-- _includes/sub-footer.html -->
 <script>
   const toggle = document.getElementById('theme-toggle');
   const root = document.documentElement;
   const storedTheme = localStorage.getItem('theme');
 
-  // Apply saved preference or system preference
+  // Apply saved preference
   if (storedTheme) {
     root.dataset.theme = storedTheme;
-  } else {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    root.dataset.theme = prefersDark ? 'dark' : 'light';
   }
 
-  // Toggle handler
   toggle.addEventListener('click', () => {
     const current = root.dataset.theme === 'dark' ? 'light' : 'dark';
     root.dataset.theme = current;
