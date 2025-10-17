@@ -1,47 +1,4 @@
-/* Remove Minima's top border */
+/* Remove top border */
 .site-header {
   border-top: none;
 }
-
-/* === Theme color variables === */
-
-/* Light mode */
-:root[data-theme="light"] {
-  --bg-color: #ffffff;
-  --text-color: #111111;
-  --link-color: #0366d6;
-  --border-color: #eaeaea;
-}
-
-/* Dark mode */
-:root[data-theme="dark"] {
-  --bg-color: #0d1117;
-  --text-color: #e6edf3;
-  --link-color: #58a6ff;
-  --border-color: #30363d;
-}
-
-/* === Apply global colors === */
-
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-a {
-  color: var(--link-color);
-  transition: color 0.3s ease;
-}
-
-/* === Header and Footer unified === */
-
-.site-header,
-.site-footer {
-  background-color: var(--bg-color) !important;
-  color: var(--text-color) !important;
-  border: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Add subtle shadow for readability (optional b*
