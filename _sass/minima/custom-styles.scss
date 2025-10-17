@@ -1,3 +1,36 @@
 .site-header {
   border-top: none;
 }
+
+/* Default light mode */
+:root[data-theme="light"] {
+  --bg-color: #ffffff;
+  --text-color: #111111;
+  --link-color: #0366d6;
+}
+
+/* Dark mode */
+:root[data-theme="dark"] {
+  --bg-color: #0d1117;
+  --text-color: #e6edf3;
+  --link-color: #58a6ff;
+}
+
+/* Apply the variables */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--link-color);
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  color: var(--text-color);
+  margin-left: 1rem;
+}
