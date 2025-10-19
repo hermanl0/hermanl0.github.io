@@ -23,10 +23,10 @@ This was performed on an on-premise (local) LLM .
 
 | Tool | Reason I chose it | How I installed it |
 |------|-------------------|--------------------|
-| **Wireshark** | Quick visual capture; easy hex-dump export. | `sudo apt-get install wireshark` |
-| **tcpdump** | Script-friendly, works without a GUI. | `sudo apt-get install tcpdump` |
+| **Wireshark** | Quick visual capture; easy hex-dump export. | `apt-get install wireshark` |
+| **tcpdump** | Script-friendly, works without a GUI. | `apt-get install tcpdump` |
 | **OpenCode** | Provides a terminal UI that can call LLMs and run shell commands in one place. | See the “Installing OpenCode” section below. |
-| **API key** | Required to talk to the local models. | Grab one from yout provider and replace the placeholder `<your-api-key>` in the config file. |
+| **API key** | Required to talk to the local models. | Grab one from your provider and replace the placeholder `<your-api-key>` in the config file. |
 
 ---
 
