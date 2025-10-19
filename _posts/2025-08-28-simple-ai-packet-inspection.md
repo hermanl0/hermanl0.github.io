@@ -192,33 +192,10 @@ I copied the markdown output and used it as the basis for the next section of th
 | **IPv6 neighbor**       | `2001:db8::1`                                                             | ICMPv6 neighbor solicitation    |
 | **HTTPS endpoint**      | `203.0.113.5`                                                             | TLS/SSL (port 443)              |
 
-### 6.4 Interesting Findings (My Takeaways)
-
-* **No clear-text HTTP or DNS** – the capture is essentially silent except for the SSH session.
-* **ICMPv6 neighbor-solicitation bursts** – a sign that my machine is IPv6-enabled and doing normal link-layer discovery.
-* **A single TLS flow to `203.0.113.5`** – probably a background update or a web-service check; nothing suspicious.
-
-Overall, the AI gave me a concise, accurate picture of what was happening on the wire without me having to write a single parser.
-
 ---
 
-## 7. My Practical Workflow (What I’ll Use from now on)
+## 7. Final Thoughts
 
-1. **Pick a capture size**
-
-   * < 100 packets → Wireshark → hex dump (quick, visual).
-   * ≥ 1 000 packets → OpenCode + `tcpdump` (scriptable, reproducible).
-2. **Export & clean the data** (the `awk` one-liner for hex dumps, the `tcpdump` pipelines for pcaps).
-3. **Feed the data to the LLM** using the prompt above.
-4. **Read the markdown tables** – they give me the high-level map I need.
-5. **Drill down on demand** – I can ask the model to “show every packet that contains port 80” or “list MAC addresses that appear more than five times”.
-6. **Paste the markdown into my documentation or ticket** – the format is already ready for GitHub, Confluence, or a simple README.
-
----
-
-## 8. Final Thoughts
-
-* **LLMs really do excel at pattern-recognition** across raw packet bytes or textual `tcpdump` output.
 * The **hex-dump-only route** is perfect for teaching, quick demos, or when I only need a handful of packets.
 * The **OpenCode TUI** lets me capture a realistic amount of traffic, run shell commands, and keep everything inside a single terminal session—great for automation or when I’m working on a headless server.
 * By **combining both methods** I now have a flexible toolbox that scales from a few lines of Wireshark output to multi-megabyte pcap files, all while staying in full control of the data and the AI’s reasoning.
