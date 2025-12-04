@@ -6,6 +6,8 @@ author: hermanl0
 categories: blog
 ---
 
+![Kubernetes Hello World Demo](/img/k8s-hello-world.PNG)
+
 A test project for Kubernetes deployments and configurations.
 
 ## Step 1: Install kubectl
