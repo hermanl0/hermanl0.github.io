@@ -10,7 +10,7 @@ categories: blog
 
 ## The Original Plan
 
-Originally, I had designed a comprehensive infrastructure stack for Lanmine 41 built on Proxmox and Kubernetes. The architecture was ambitious and fully featured, with automation, monitoring, and all the bells and whistles you'd expect from a production-ready infrastructure.
+Originally, We had designed a comprehensive infrastructure stack for Lanmine 41 built on Proxmox and Kubernetes. The architecture was ambitious and fully featured, with automation, monitoring, and all the bells and whistles you'd expect from a production-ready infrastructure.
 
 You can check out the original planned infrastructure code at [github.com/Lanmine/lanmine_tech/tree/main/lanmine_41](https://github.com/Lanmine/lanmine_tech/tree/main/lanmine_41).
 
@@ -47,14 +47,17 @@ Instead of the complex virtualized infrastructure, we went with a straightforwar
 **Edge Network:**
 - 10G-capable Catalyst 2960X switches as edge switches
 - Star topology for easy management and troubleshooting
+<img src="/img/lan_full2.JPG" alt="Description" width="500">
 
 ## Monitoring Setup
 
-I set up basic monitoring from the gateway using:
+We set up basic monitoring from the gateway using:
 - Discord webhook for alerts
 - SNMP monitoring for network stats
+<img src="/img/nexus_webhook_discord.PNG" alt="Description" width="500">
 
-This is just the beginning - I'm hoping to expand this monitoring solution for the next event.
+## Speed test
+<img src="/img/iperf-10G.png" alt="Description" width="500">
 
 ## Future Plans
 
@@ -73,14 +76,3 @@ I'm planning to experiment with:
 ## The Magic Moment
 
 All in all, it was a great event. Our 10G connection ran smoothly throughout.
-
-But the best moment? Getting that first iperf3 10G test working. Watching those bandwidth numbers climb to 10 Gbps - that's what it's all about.
-
-## Lessons Learned
-
-- **Keep it simple**: A well-designed traditional network beats an overcomplicated one
-- **Test early**: That first successful iperf3 test gave us confidence
-- **Monitor from day one**: Even basic monitoring saved us troubleshooting time
-- **Plan for next time**: Document what worked and what didn't
-
-Here's to Lanmine 42 and beyond!
