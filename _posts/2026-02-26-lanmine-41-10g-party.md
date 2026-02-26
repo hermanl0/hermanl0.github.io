@@ -6,6 +6,8 @@ author: hermanl0
 categories: blog
 ---
 
+<img src="/img/cybrpanda-171225.png" alt="Description" width="500">
+
 ## The Original Plan
 
 Originally, I had designed a comprehensive infrastructure stack for Lanmine 41 built on Proxmox and Kubernetes. The architecture was ambitious and fully featured, with automation, monitoring, and all the bells and whistles you'd expect from a production-ready infrastructure.
