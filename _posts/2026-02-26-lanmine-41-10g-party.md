@@ -14,6 +14,9 @@ Originally, I had designed a comprehensive infrastructure stack for Lanmine 41 b
 
 You can check out the original planned infrastructure code at [github.com/Lanmine/lanmine_tech/tree/main/lanmine_41](https://github.com/Lanmine/lanmine_tech/tree/main/lanmine_41).
 
+<img src="/img/glance2.png" alt="Description" width="1000">
+<img src="/img/n8n_discord.PNG" alt="Description" width="500">
+
 ## Reality Check: Simplicity Wins
 
 In the end, we chose not to use the Proxmox/Kubernetes stack this time. The deciding factors were:
@@ -33,9 +36,13 @@ Instead of the complex virtualized infrastructure, we went with a straightforwar
 - Direct connection to our ISP
 - Basic access lists to protect the public /24 network routed to LAN participants
 
+<img src="/img/main_fiber_hallway.JPG" alt="Description" width="500">
+<img src="/img/IMG_1476.JPG" alt="Description" width="500">
+
 **Core Network:**
 - Another Nexus 92160 as the core switch
 - Connected directly from the gateway
+<img src="/img/core-sw1.JPG" alt="Description" width="500">
 
 **Edge Network:**
 - 10G-capable Catalyst 2960X switches as edge switches
