@@ -10,7 +10,7 @@ categories: blog
 
 A follow-up to [Kubernetes Test 01]({% post_url 2025-12-04-kubernetes-test-01 %}), this time on Azure Kubernetes Service with a production-closer stack: Gateway API ingress, automatic TLS, a full observability suite, and a custom dashboard.
 
-The full source is at [github.com/hermanl0/k8s-test02](https://github.com/hermanl0/k8s-test02).
+The full source is at [github.com/hermanl0/k8s-test02](https://github.com/hermanl0/k8s-test02). The lab is live at **[doom.hl0.dev](https://doom.hl0.dev)**.
 
 ---
 
