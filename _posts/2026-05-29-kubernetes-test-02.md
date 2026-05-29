@@ -6,6 +6,8 @@ author: hermanl0
 categories: blog
 ---
 
+<img src="/img/doom-dashboard.png" alt="Doom Dashboard" width="1000">
+
 A follow-up to [Kubernetes Test 01]({% post_url 2025-12-04-kubernetes-test-01 %}), this time on Azure Kubernetes Service with a production-closer stack: Gateway API ingress, automatic TLS, a full observability suite, and a custom dashboard.
 
 The full source is at [github.com/hermanl0/k8s-test02](https://github.com/hermanl0/k8s-test02).
