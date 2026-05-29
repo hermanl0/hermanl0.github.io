@@ -143,6 +143,8 @@ helm upgrade --install loki-stack \
 
 NGF exposes a Prometheus metrics endpoint on port 9113. A `ServiceMonitor` picks it up automatically so NGF request metrics land in Grafana alongside cluster and node metrics.
 
+<img src="/img/k8s-test02-grafana.png" alt="Grafana dashboard" width="1000">
+
 ---
 
 ## Step 5: The Doom Dashboard
@@ -160,6 +162,8 @@ kubectl get pods -n lab
 ```
 
 The dashboard shows live pod network metrics, open ServiceNow incidents, and embeds Uptime Kuma monitor statuses — all over HTTPS via the Gateway.
+
+<img src="/img/k8s-test02-uptimekuma.png" alt="Uptime Kuma status page" width="1000">
 
 ---
 
