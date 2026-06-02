@@ -21,6 +21,9 @@ The full source is at [github.com/hermanl0/k8s-test02](https://github.com/herman
 | **AKS** | Managed Kubernetes cluster on Azure |
 | **NGINX Gateway Fabric** | Gateway API ingress controller |
 | **cert-manager** | Automatic TLS via Let's Encrypt |
+| **CloudNativePG** | 3-instance PostgreSQL 16 HA cluster (1 primary, 2 replicas) |
+| **pgBouncer** | Connection pooler in front of PostgreSQL |
+| **MinIO** | S3-compatible object storage for WAL archiving and daily backups |
 | **kube-prometheus-stack** | Prometheus + Grafana + Alertmanager |
 | **Loki + Promtail** | Log aggregation |
 | **Uptime Kuma** | Public status page |
@@ -156,8 +159,8 @@ kubectl get pods -n lab
 > NAME                             READY   STATUS    RESTARTS
 > doom-0                           1/1     Running   0
 > doom-dashboard-[HASH]            1/1     Running   0
-> mariadb-[HASH]                   1/1     Running   0
 > nginx-[HASH]                     1/1     Running   0
+> pgbouncer-[HASH]                 1/1     Running   0
 > uptimekuma-[HASH]                1/1     Running   0
 ```
 
@@ -167,7 +170,29 @@ The dashboard shows live pod network metrics, open ServiceNow incidents, and emb
 
 ---
 
-## Step 6: Security hardening
+## Step 6: PostgreSQL HA with CloudNativePG
+
+Instead of a single-replica MySQL/MariaDB, the lab runs a proper HA database stack:
+
+- **CloudNativePG operator** manages a 3-instance PostgreSQL 16 cluster — one primary, two streaming replicas with automatic failover
+- **pgBouncer** sits in front as a connection pooler; applications connect to pgBouncer, not directly to PostgreSQL
+- **MinIO** provides S3-compatible object storage for continuous WAL archiving and daily full backups via pgBackRest
+
+```bash
+kubectl get cluster postgres -n lab
+> NAME       AGE   INSTANCES   READY   STATUS                     PRIMARY
+> postgres   1d    3           3       Cluster in healthy state   postgres-1
+
+kubectl get backup -n lab
+> NAME                STATUS      STARTED                STOPPED
+> postgres-backup-1   completed   2026-05-30T02:00:00Z   2026-05-30T02:03:12Z
+```
+
+The full flow: `app → pgBouncer:5432 → postgres-rw (primary) → WAL → MinIO`
+
+---
+
+## Step 7: Security hardening
 
 **NetworkPolicies** default-deny all traffic in the `lab` namespace, with explicit allow rules per workload. Only the `nginx-gateway` namespace can reach application pods.
 
@@ -206,7 +231,7 @@ filters:
 
 ---
 
-## Step 7: CI/CD with GitHub Actions
+## Step 8: CI/CD with GitHub Actions
 
 A single workflow on push to `main` handles the full deploy: Azure login, helm upgrades, manifest apply, DNS update via Cloudflare API, and a final cluster state dump.
 
