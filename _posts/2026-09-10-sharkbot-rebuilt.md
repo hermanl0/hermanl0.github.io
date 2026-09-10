@@ -8,6 +8,8 @@ categories: blog
 
 Sharkbot is a chat bot I built for a network operations team. The idea is simple: ask it a question in chat and it looks up live data — a ticket here, a device there — and answers in the thread, so nobody has to leave the chat window to check a status. What is interesting is not the idea but how much the implementation shrank between the first version and the one I actually kept.
 
+A note on the name, since it is also a well-known piece of Android malware: this sharkbot is unrelated. It got its name at the hackathon where I first built it, where its job was to run `tshark` — the command-line side of Wireshark — against packet captures on request. The packet-analysis role faded, but the name stuck.
+
 ---
 
 ### The first version: a full agent framework
