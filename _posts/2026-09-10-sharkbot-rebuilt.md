@@ -10,6 +10,8 @@ Sharkbot is a chat bot I built for a network operations team. The idea is simple
 
 A note on the name, since it is also a well-known piece of Android malware: this sharkbot is unrelated. It got its name at the hackathon where I first built it, where its job was to run `tshark` — the command-line side of Wireshark — against packet captures on request. The packet-analysis role faded, but the name stuck.
 
+<img src="/img/sharkbot.svg" alt="A friendly cartoon sharkbot mascot" width="300">
+
 ---
 
 ### The first version: a full agent framework
@@ -33,6 +35,8 @@ So I deleted the framework and wrote the loop myself.
 ---
 
 ### The version I kept
+
+<img src="/img/sharkbot-flow.svg" alt="Flowchart: a question flows from the chat to sharkbot to the LLM; the LLM calls read-only APIs in a loop, then the final answer is posted back to the chat thread" width="820">
 
 The bot is now a single file with zero dependencies — Python standard library only. On a mention or trigger word it calls an OpenAI-compatible model with a small set of read-only tool schemas, runs whichever tool the model picks, and posts the answer. The whole agent is this:
 
