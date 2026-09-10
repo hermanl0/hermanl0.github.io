@@ -10,7 +10,9 @@ Sharkbot is a chat bot I built for a network operations team. The idea is simple
 
 A note on the name, since it is also a well-known piece of Android malware: this sharkbot is unrelated. It got its name at the hackathon where I first built it, where its job was to run `tshark` — the command-line side of Wireshark — against packet captures on request. The packet-analysis role faded, but the name stuck.
 
-<img src="/img/sharkbot.svg" alt="A friendly cartoon sharkbot mascot" width="300">
+<img src="/img/epaulette-shark.jpg" alt="An epaulette shark, a small and harmless cute shark species" width="500">
+
+*An epaulette shark: small, harmless, and known for "walking" across reefs on its fins. Photo by [Jim Capaldi](https://commons.wikimedia.org/wiki/File:Epaulette_shark_camden.jpg), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/).*
 
 ---
 
