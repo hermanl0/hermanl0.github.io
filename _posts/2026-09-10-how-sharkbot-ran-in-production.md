@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How sharkbot ran in production"
+title: "How my AI chat bot ran in production"
 date: 2026-09-10
 author: hermanl0
 categories: blog
