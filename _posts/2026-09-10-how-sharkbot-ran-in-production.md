@@ -23,19 +23,21 @@ The interesting part was never the model. It was making it safe to point an auto
 <div class="mermaid">
 flowchart LR
   user["user in Mattermost"]
+  mm["Mattermost server"]
   subgraph sandbox["sandbox — Landlock, no network"]
     bot["sharkbot agent (dummy key only)"]
   end
-  gw["secrets gateway (holds keys, read-only)"]
+  gw["secrets gateway (holds keys)"]
   llm["on-prem LLM (gpt.uio.no)"]
   apis["read-only lookups (tickets, monitoring, docs)"]
-  user <-->|chat| gw
+  user <-->|chat| mm
   bot <-->|loopback only| gw
+  gw <-->|bot token| mm
   gw -->|inference| llm
   gw -->|GET only| apis
 </div>
 
-The whole design is that box on the left talking only to the box in the middle. Everything dangerous lives outside the sandbox.
+You talk to Mattermost, where the bot is a normal member of the channel. The bot itself talks only to the gateway — including to reach Mattermost, since it has no network of its own. Everything dangerous lives outside the sandbox.
 
 ### Sandboxed, with no way out
 
@@ -43,7 +45,7 @@ The agent ran inside a [Landlock](https://landlock.io/) sandbox with its network
 
 ### The secrets gateway
 
-The agent never held a single real API key. Every credential — the LLM key, the chat bot token, the read-only API keys — lived in a small sidecar proxy, the "secrets gateway", bound to loopback. The agent's own config held nothing but a dummy placeholder. Every outbound call went to the gateway, which matched the route, injected the correct credential, and forwarded the request. The data routes were GET-only, so even a completely compromised agent could read but never change anything.
+The agent never held a single real API key. Every credential — the LLM key, the Mattermost bot token, the read-only API keys — lived in a small sidecar proxy, the "secrets gateway", bound to loopback. The agent's own config held nothing but a dummy placeholder. Every outbound call went to the gateway, which matched the route, injected the correct credential, and forwarded the request. That included the bot's own connection to Mattermost — which is why the agent could chat with you while never touching the token that let it. The lookup routes were GET-only, so even a completely compromised agent could read from those systems but never change anything in them.
 
 That collapses the two worries into non-problems. Stolen keys: there is no key in the agent to steal. Unbounded egress: there is no route out to steal it over. What's left is the classic "confused deputy" — coaxing the bot into reading something it is already allowed to read — and I kept that bounded by giving each key the narrowest scope it could possibly need.
 
