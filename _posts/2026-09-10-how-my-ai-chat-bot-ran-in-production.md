@@ -6,11 +6,11 @@ author: hermanl0
 categories: blog
 ---
 
+<img src="/img/sharkbot-harmony.svg" alt="chat talks to a sandboxed bot with an on-prem LLM, which reaches read-only APIs" width="820">
+
 For a while I ran a Mattermost chat bot for our network operations team. You could @-mention it in a channel — "any tickets waiting on me?", "what model is that switch?", "what did the logs say during yesterday's outage?" — and it would go look things up and answer in the thread.
 
 This post is about how it actually ran in production. The chat part is the easy bit. The interesting part was letting an LLM read from live operational systems without ever giving it a credential to hold or a network to escape onto.
-
-<img src="/img/sharkbot-harmony.svg" alt="chat talks to a sandboxed bot with an on-prem LLM, which reaches read-only APIs" width="820">
 
 A quick note on the name, since it's also a well-known piece of Android malware: this one is unrelated. It got its name at the hackathon where I first built it, where its only job was to run `tshark` (the command-line side of Wireshark) over packet captures. The packet-analysis part didn't last, but the name did.
 
