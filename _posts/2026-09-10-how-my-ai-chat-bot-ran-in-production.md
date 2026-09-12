@@ -8,31 +8,29 @@ categories: blog
 
 <img src="/img/sharkbot-harmony.svg" alt="chat talks to a sandboxed bot with an on-prem LLM, which reaches read-only APIs" width="820">
 
-For a while I ran a Mattermost chat bot for our network operations team. You could @-mention it in a channel — "any tickets waiting on me?", "what model is that switch?", "what did the logs say during yesterday's outage?" — and it would go look things up and answer in the thread.
+Sharkbot is a Mattermost chat bot used by a network operations team. It answers questions in a channel by looking things up in read-only systems: a ticketing system, an SNMP monitoring platform, and a documentation knowledge base. This post covers the production setup: an LLM agent connected to live systems, with no stored credentials and no network access.
 
-This post is about how it actually ran in production. The chat part is the easy bit. The interesting part was letting an LLM read from live operational systems without ever giving it a credential to hold or a network to escape onto.
-
-A quick note on the name, since it's also a well-known piece of Android malware: this one is unrelated. It got its name at the hackathon where I first built it, where its only job was to run `tshark` (the command-line side of Wireshark) over packet captures. The packet-analysis part didn't last, but the name did.
+The name comes from an earlier hackathon build whose only job was running `tshark` (the command-line side of Wireshark) over packet captures. It is unrelated to the Android malware of the same name.
 
 ---
 
-## The Setup
+## Architecture
 
-I didn't write the agent from scratch. It runs on [OpenClaw](https://github.com/openclaw/openclaw), which gives you the agent loop, tool-calling, and a Mattermost integration out of the box. Everything else is plumbing I added around it to make it safe to run.
+The agent runs on [OpenClaw](https://github.com/openclaw/openclaw), which provides the agent loop, tool-calling, and the Mattermost integration. The remaining components isolate it.
 
 | Component | What it does |
 |-----------|--------------|
-| **OpenClaw agent** | The bot itself — reasoning loop, tool-calling, Mattermost |
+| **OpenClaw agent** | The bot: reasoning loop, tool-calling, Mattermost |
 | **nono sandbox (Landlock)** | Runs the agent with no network access |
-| **Secrets gateway** | A small local proxy that holds every real credential |
-| **On-prem LLM** | Inference on `gpt.uio.no`, so nothing leaves the org |
-| **Read-only tools** | Tickets, monitoring, and a docs knowledge base, all GET-only |
+| **Secrets gateway** | Local proxy that holds every real credential |
+| **On-prem LLM** | Inference on `gpt.uio.no` |
+| **Read-only tools** | Tickets, monitoring, docs knowledge base, all GET-only |
 
 ---
 
-## The Flow
+## Data Flow
 
-You talk to Mattermost, where the bot sits as a normal channel member. The bot itself talks to nothing except the gateway on loopback, and the gateway is what actually reaches Mattermost, the LLM, and the lookups on its behalf.
+Users interact with the bot in Mattermost. The agent has no direct network access; it connects only to the secrets gateway on loopback. The gateway makes the outbound calls on its behalf: to Mattermost, the LLM, and the read-only lookups.
 
 <div class="mermaid">
 flowchart LR
@@ -51,46 +49,38 @@ flowchart LR
   gw -->|GET only| apis
 </div>
 
-The agent has no idea what any of the real endpoints are. As far as it's concerned, everything lives at `127.0.0.1`.
+From the agent's side, every endpoint is `127.0.0.1`.
 
 ---
 
-## No Network, No Keys
+## Sandboxing and Credentials
 
-Two rules do most of the work here.
+The agent runs in a Landlock sandbox with networking blocked. An `nftables` rule restricts its user to loopback only, so any other outbound traffic is dropped at the host.
 
-First, the agent runs inside a Landlock sandbox with its network blocked, and an `nftables` rule pins its user to loopback only. If a prompt-injected model ever tries to phone home or scan the network, the packets have nowhere to go.
-
-Second, the agent never holds a real key. Its entire view of its own credentials is this:
+The agent holds no real credentials. Its configuration points only at the gateway:
 
 ```
 baseURL: http://127.0.0.1:8090/v1
 apiKey:  sk-dummy
 ```
 
-Every real credential — the LLM key, the Mattermost bot token, the API keys for the lookups — lives only in the gateway. When the agent makes a call, the gateway matches the route, swaps in the correct credential, and forwards it on. That's also how the bot talks in Mattermost at all: it chats as itself without the token that lets it ever being inside the sandbox.
+The real credentials — the LLM key, the Mattermost bot token, and the lookup API keys — are held only by the gateway. On each request, the gateway matches the route, injects the correct credential, and forwards it. This also covers the Mattermost connection: the bot posts as itself without the token being present in the sandbox.
 
-The lookup routes are GET-only, so even a fully compromised agent can read from those systems but not change anything in them.
-
----
-
-## What's Left to Worry About
-
-This removes the two things I actually cared about. There's no key in the agent to steal, and no route out to steal it over. What remains is the classic confused-deputy problem — talking the bot into reading something it's already allowed to read — and I kept that small by giving every key the narrowest scope it could get away with.
+The lookup routes are GET-only, so a compromised agent can read from those systems but not modify them.
 
 ---
 
-## Running It
+## Threat Model
 
-The gateway runs as a Docker container, and the sandboxed agent runs as a service next to it. Updates are deliberate: a pinned version, installed to a staging copy, smoke-tested by booting it in the sandbox and checking it still connects and answers a real query, and promoted only if it passes. No blind `latest`.
-
-On top of the chat, a couple of host timers post a daily network-health summary to a status channel, so it's useful even when nobody is asking it anything.
+There is no credential in the agent to steal, and no route to exfiltrate over. The remaining case is a confused deputy: the bot being prompted to read data it already has access to. That is limited by scoping each key as narrowly as possible.
 
 ---
 
-## Final Thoughts
+## Deployment
 
-The model does the reasoning; everything around it just makes sure that's all it can do. Sandbox the agent, cut its network, and hide every credential behind a loopback proxy, and you can point an LLM at real production data without handing it anything dangerous to keep. That was the whole point, and it's the part I'd build the same way again.
+The gateway runs as a Docker container; the sandboxed agent runs as a service alongside it. Updates use a pinned version installed to a staging copy, smoke-tested in the sandbox (confirming it connects and answers a query), and promoted only if the test passes. There is no automatic pull of `latest`.
+
+A set of host timers post a daily network-health summary to a status channel.
 
 <script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
