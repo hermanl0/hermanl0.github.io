@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How my AI chat bot ran in production"
+title: "Chat-ops Test 01: Sandboxed Read-only Bot"
 date: 2026-09-10
 author: hermanl0
 categories: blog
