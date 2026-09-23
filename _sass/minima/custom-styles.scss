@@ -361,9 +361,11 @@ hr {
   &:visited { color: var(--muted); }
   &:hover   { color: var(--accent); text-decoration: none; }
 
+  // The width/height attributes on the SVGs match these, so the icons are
+  // never full-size for the moment before the stylesheet applies.
   svg {
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
     fill: currentColor;
   }
 }
