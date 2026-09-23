@@ -1,4 +1,409 @@
-/* Remove top border */
+// Imported last, after minima's _base and _layout.
+//
+// The "auto" skin exposes its palette as --minima-* custom properties, so the
+// whole theme can be recoloured by redefining them here rather than forking.
+
+/* ------------------------------------------------------------- palette -- */
+
+:root {
+  color-scheme: light dark;
+
+  --minima-background-color:      #fcfcfc;
+  --minima-text-color:            #22262b;
+  --minima-heading-color:         #0f1216;
+  --minima-site-title-color:      #0f1216;
+
+  --minima-brand-color:           #5f6a75;
+  --minima-brand-color-light:     #e4e6e9;
+  --minima-brand-color-dimmed:    #4a545e;
+  --minima-brand-color-dark:      #22262b;
+
+  --minima-link-base-color:       #0b6e99;
+  --minima-link-visited-color:    #0b6e99;
+  --minima-link-hover-color:      #0b6e99;
+
+  --minima-code-background-color: #f4f5f6;
+  --minima-border-color-01:       #e4e6e9;
+  --minima-border-color-02:       #eeeff1;
+  --minima-border-color-03:       #cfd3d8;
+
+  --minima-table-text-color:      #22262b;
+  --minima-table-zebra-color:     #f8f9fa;
+  --minima-table-header-bg-color: #f4f5f6;
+  --minima-table-header-border:   #e4e6e9;
+  --minima-table-border-color:    #e4e6e9;
+
+  --accent: #0b6e99;
+  --muted:  #5f6a75;
+  --rule:   #e4e6e9;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --minima-background-color:      #101215;
+    --minima-text-color:            #c3cad2;
+    --minima-heading-color:         #e7ebef;
+    --minima-site-title-color:      #e7ebef;
+
+    --minima-brand-color:           #838e9a;
+    --minima-brand-color-light:     #262b31;
+    --minima-brand-color-dimmed:    #9aa4ae;
+    --minima-brand-color-dark:      #c3cad2;
+
+    --minima-link-base-color:       #6cb6d9;
+    --minima-link-visited-color:    #6cb6d9;
+    --minima-link-hover-color:      #6cb6d9;
+
+    --minima-code-background-color: #171a1f;
+    --minima-border-color-01:       #262b31;
+    --minima-border-color-02:       #1d2126;
+    --minima-border-color-03:       #39414a;
+
+    --minima-table-text-color:      #c3cad2;
+    --minima-table-zebra-color:     #14171b;
+    --minima-table-header-bg-color: #171a1f;
+    --minima-table-header-border:   #262b31;
+
+    --accent: #6cb6d9;
+    --muted:  #838e9a;
+    --rule:   #262b31;
+  }
+}
+
+/* --------------------------------------------------------- typography -- */
+
+body {
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+p { text-wrap: pretty; }
+
+// Dates, counts and other figures line up in columns.
+time, .post-meta, table td, table th {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------- header -- */
+
 .site-header {
   border-top: none;
+  border-bottom: 1px solid var(--rule);
+  min-height: auto;
+  padding: 1.6rem 0 1.4rem;
+}
+
+.site-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  margin: 0;
+  float: none;
+
+  &, &:visited { color: var(--minima-site-title-color); }
+  &:hover { text-decoration: none; color: var(--accent); }
+}
+
+.site-nav {
+  line-height: 1.4;
+
+  .page-link {
+    color: var(--muted);
+    font-size: 0.875rem;
+
+    &:hover { color: var(--accent); text-decoration: none; }
+  }
+}
+
+.page-content { padding: 3rem 0 4rem; }
+
+/* --------------------------------------------------------- post index -- */
+
+.home > p {
+  color: var(--muted);
+  max-width: 34rem;
+  margin-bottom: 3rem;
+}
+
+.post-year {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 2.6rem 0 1.2rem;
+  font-family: $code-font-family;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+
+  &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+}
+
+.post-list {
+  margin: 0;
+  list-style: none;
+
+  > li {
+    margin-bottom: 1.6rem;
+    display: grid;
+    gap: 0.15rem 1.4rem;
+    grid-template-columns: 4.5rem 1fr;
+    align-items: baseline;
+  }
+}
+
+.post-list .post-date {
+  font-family: $code-font-family;
+  font-size: 0.78rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.post-list .post-link {
+  display: inline;
+  font-size: 1.06rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  color: var(--minima-heading-color);
+
+  &:visited { color: var(--minima-heading-color); }
+  &:hover   { color: var(--accent); text-decoration: none; }
+}
+
+.post-list .post-summary {
+  grid-column: 2;
+  margin: 0.2rem 0 0;
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+@media screen and (max-width: 640px) {
+  .post-list > li { grid-template-columns: 1fr; gap: 0.1rem; }
+  .post-list .post-summary { grid-column: 1; }
+}
+
+/* ---------------------------------------------------------- post page -- */
+
+.post-header {
+  text-align: left;
+  margin-bottom: 2.4rem;
+  padding-bottom: 1.2rem;
+}
+
+.post-title,
+.post-content h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.022em;
+  margin-bottom: 0.6rem;
+
+  @media screen and (max-width: 640px) { font-size: 1.6rem; }
+}
+
+.post-meta {
+  font-family: $code-font-family;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.post-content {
+  h2 { font-size: 1.4rem;  margin-top: 2.6rem; }
+  h3 { font-size: 1.15rem; margin-top: 2rem; }
+  h4 { font-size: 1rem;    margin-top: 1.6rem; }
+
+  // Underline links in prose; leave chrome links alone.
+  a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--minima-border-color-03);
+    text-underline-offset: 0.18em;
+
+    &:hover { text-decoration-color: var(--accent); }
+  }
+
+  ul, ol { margin-left: 1.3rem; }
+  li { margin-bottom: 0.3rem; }
+}
+
+blockquote {
+  font-style: normal;
+  font-size: 1rem;
+  color: var(--muted);
+  border-left: 2px solid var(--minima-border-color-03);
+  padding-left: 1.1rem;
+}
+
+/* ------------------------------------------------------------ figures -- */
+
+.post-content img {
+  display: block;
+  margin: 1.8rem auto;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+}
+
+// Screenshots and photos are usually authored for a light background.
+@media (prefers-color-scheme: dark) {
+  .post-content img { filter: brightness(0.9) contrast(1.05); }
+}
+
+figcaption {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin-top: -1rem;
+  margin-bottom: 1.8rem;
+}
+
+/* --------------------------------------------------------------- code -- */
+
+pre, code { font-feature-settings: "kern" 0, "liga" 0, "calt" 0; }
+
+code.highlighter-rouge {
+  padding: 0.1em 0.35em;
+  font-size: 0.86em;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--minima-code-background-color);
+}
+
+pre,
+div.highlight,
+figure.highlight {
+  border: 1px solid var(--rule);
+  border-radius: 5px;
+  background-color: var(--minima-code-background-color);
+}
+
+pre {
+  padding: 0.9rem 1.05rem;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  overflow-x: auto;
+  color: var(--minima-text-color);
+}
+
+// The wrapper already carries the frame.
+div.highlight pre,
+figure.highlight pre {
+  border: none;
+  border-radius: 0;
+}
+
+/* ------------------------------------------------------------- tables -- */
+
+table {
+  font-size: 0.92rem;
+  border: none;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+
+  th {
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--minima-border-color-03);
+    font-weight: 600;
+    color: var(--minima-heading-color);
+  }
+
+  td { border: none; border-bottom: 1px solid var(--minima-border-color-02); }
+  tr:nth-child(even) { background-color: transparent; }
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+}
+
+/* ------------------------------------------------------------- footer -- */
+
+.site-footer {
+  border-top: 1px solid var(--rule);
+  background: none;
+  color: var(--muted);
+  padding: 2rem 0 2.5rem;
+  font-family: inherit;
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+  align-items: center;
+  margin: 0;
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--muted);
+
+  &:visited { color: var(--muted); }
+  &:hover   { color: var(--accent); text-decoration: none; }
+
+  svg {
+    width: 15px;
+    height: 15px;
+    fill: currentColor;
+  }
+}
+
+/* -------------------------------------------- syntax highlighting (lm) -- */
+
+.highlight {
+  .c, .c1, .cm, .cp, .cs, .cd { color: #79838e; font-style: normal; }
+  .k, .kc, .kd, .kn, .kp, .kr, .kv { color: #9b2c6f; }
+  .kt { color: #8a4b00; }
+  .nt, .nb, .bp { color: #9b2c6f; }
+  .nf, .nc, .nn { color: #0b5fa5; }
+  .na { color: #0b5fa5; }
+  .no, .nv, .vc, .vg, .vi { color: #6a4bb5; }
+  .s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sr, .ss, .sx { color: #0a6e3d; }
+  .m, .mf, .mh, .mi, .mo, .il { color: #8a4b00; }
+  .o, .ow { color: #55606b; }
+  .go, .gp { color: #79838e; }
+  .gi { color: #0a6e3d; }
+  .gd { color: #b3261e; }
+  .err { color: inherit; background: none; }
+}
+
+/* -------------------------------------------- syntax highlighting (dm) -- */
+
+@media (prefers-color-scheme: dark) {
+  .highlight {
+    .c, .c1, .cm, .cp, .cs, .cd { color: #6f7a85; font-style: normal; }
+    .k, .kc, .kd, .kn, .kp, .kr, .kv { color: #d98bbf; }
+    .kt { color: #d9a86c; }
+    .nt, .nb, .bp { color: #d98bbf; }
+    .nf, .nc, .nn { color: #74b4e0; }
+    .na { color: #74b4e0; }
+    .no, .nv, .vc, .vg, .vi { color: #b3a4e6; }
+    .s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sr, .ss, .sx { color: #8fbf7f; }
+    .m, .mf, .mh, .mi, .mo, .il { color: #d9a86c; }
+    .o, .ow { color: #99a3ad; }
+    .go, .gp { color: #6f7a85; }
+    .gi { color: #8fbf7f; }
+    .gd { color: #e08a83; }
+    .err { color: inherit; background: none; }
+  }
 }

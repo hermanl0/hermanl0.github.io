@@ -7,5 +7,6 @@ remote_theme: jekyll/minima
 markdown: kramdown
 
 minima:
-  skin: dark
+  skin: auto
   show_excerpts: true
+  date_format: "%d %b %Y"
