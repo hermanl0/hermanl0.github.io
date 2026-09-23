@@ -6,6 +6,11 @@ url: "https://hermanl0.github.io"
 remote_theme: jekyll/minima
 markdown: kramdown
 
+plugins:
+  - jekyll-remote-theme
+  - jekyll-feed
+  - jekyll-seo-tag
+
 minima:
   skin: auto
   show_excerpts: true
